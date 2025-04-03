@@ -38,6 +38,32 @@ IT's Your Life 6기 - 프론트엔드 스켈레톤 프로젝트입니다.
  ┣ 📂api
  ┃ ┣ 📜common.js
  ┃ ┗ 📜sample.js
+ ┣ 📂assets
+ ┃ ┣ 📜base.css
+ ┃ ┣ 📜logo.svg
+ ┃ ┗ 📜main.css
+ ┣ 📂common
+ ┃ ┗ 📜constants.js
+ ┣ 📂components
+ ┃ ┣ 📂common
+ ┃ ┃ ┗ 📜BaseButton.vue
+ ┃ ┗ 📂layouts
+ ┃ ┃ ┣ 📜CommonBody.vue
+ ┃ ┃ ┣ 📜CommonFooter.vue
+ ┃ ┃ ┗ 📜CommonHeader.vue
+ ┣ 📂pages
+ ┃ ┗ 📜HomePage.vue
+ ┣ 📂router (라우터)
+ ┃ ┗ 📜index.js
+ ┣ 📂utils (각종 함수 모음)
+ ┃ ┗ 📜common.js
+ ┣ 📜App.vue
+ ┗ 📜main.js
+
+ 📦src
+ ┣ 📂api
+ ┃ ┣ 📜common.js
+ ┃ ┗ 📜sample.js
  ┣ 📂assets (전역 스타일링 및 글꼴, 이미지)
  ┃ ┣ 📜base.css
  ┃ ┣ 📜logo.svg
@@ -55,8 +81,11 @@ IT's Your Life 6기 - 프론트엔드 스켈레톤 프로젝트입니다.
  ┃ ┗ 📜HomePage.vue
  ┣ 📂router (라우터)
  ┃ ┗ 📜index.js
+ ┣ 📂stores (상태 관리 hook)
+ ┃ ┗ 📜counter.js
  ┣ 📂utils (각종 함수 모음)
  ┃ ┗ 📜common.js
+ ┣ 📜.editorconfig
  ┣ 📜App.vue
  ┗ 📜main.js
 ```
