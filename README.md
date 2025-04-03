@@ -34,32 +34,6 @@ IT's Your Life 6기 - 프론트엔드 스켈레톤 프로젝트입니다.
 ## 디렉토리 구조
 
 ```
-📦src
- ┣ 📂api
- ┃ ┣ 📜common.js
- ┃ ┗ 📜sample.js
- ┣ 📂assets
- ┃ ┣ 📜base.css
- ┃ ┣ 📜logo.svg
- ┃ ┗ 📜main.css
- ┣ 📂common
- ┃ ┗ 📜constants.js
- ┣ 📂components
- ┃ ┣ 📂common
- ┃ ┃ ┗ 📜BaseButton.vue
- ┃ ┗ 📂layouts
- ┃ ┃ ┣ 📜CommonBody.vue
- ┃ ┃ ┣ 📜CommonFooter.vue
- ┃ ┃ ┗ 📜CommonHeader.vue
- ┣ 📂pages
- ┃ ┗ 📜HomePage.vue
- ┣ 📂router (라우터)
- ┃ ┗ 📜index.js
- ┣ 📂utils (각종 함수 모음)
- ┃ ┗ 📜common.js
- ┣ 📜App.vue
- ┗ 📜main.js
-
  📦src
  ┣ 📂api
  ┃ ┣ 📜common.js
