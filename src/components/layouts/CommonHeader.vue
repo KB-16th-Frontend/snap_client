@@ -5,7 +5,11 @@ header {
 </style>
 
 <template>
-    <header class="bg-white">헤더 레이아웃 구성</header>
+    <header class="bg-white">
+        <BaseLogo />
+    </header>
 </template>
 
-<script setup></script>
+<script setup>
+import BaseLogo from '../common/Logo/BaseLogo.vue'
+</script>
