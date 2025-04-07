@@ -36,8 +36,14 @@
                 </BaseTypography>
             </div>
         </div>
-        <BaseTypography v-if="amount" size="md" weight="medium" :color="amountColor" class="amount"
-            >{{ props.amount.toLocaleString() }}원</BaseTypography
+        <BaseTypography
+            v-if="amount"
+            size="md"
+            weight="medium"
+            :color="amountColor"
+            class="d-flex align-items-center"
+        >
+            {{ props.amount.toLocaleString() }}원</BaseTypography
         >
     </li>
 </template>
@@ -60,11 +66,14 @@ const props = defineProps({
         type: String,
     },
 })
+
 const amountColor = computed(() => {
     if (props.transactionType === 'spending') {
         return 'blue'
     } else if (props.transactionType === 'income') {
         return 'red'
+    } else {
+        return ''
     }
 })
 </script>

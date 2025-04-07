@@ -5,13 +5,13 @@
         </BaseTypography>
 
         <BaseCard title="수입 및 지출 추가" class="mt-3">
-            <BaseTypography color="black" size="medium" weight="bold" class="mt-3">
+            <BaseTypography color="black" size="md" weight="bold" class="mt-3">
                 새로운 수입 및 지출이 생겼나요?<br />
                 스냅과 함께 하루를 기록해보세요!</BaseTypography
             >
             <!-- TODO: to 목적지 추가 -->
             <router-link class="btn btn-primary mt-3" to="/payments">
-                <BaseTypography color="white" size="medium" weight="bold"
+                <BaseTypography color="white" size="md" weight="bold"
                     >수입 및 지출 추가하기</BaseTypography
                 >
             </router-link>
@@ -19,10 +19,25 @@
         <!-- TODO: toName 목적지 변경 -->
         <BaseCard title="최근 지출 내역" toName="payments" class="mt-3">
             <!-- TODO: 이모지 리스트 아이템 추가 -->
-            <ul class="mt-4">
-                <li>하이</li>
-                <li>하이</li>
-                <li>하이</li>
+            <ul class="mt-4 d-flex flex-column gap-3">
+                <PaymentItem
+                    title="테스트"
+                    category="식비"
+                    :amount="10000"
+                    transactionType="spending"
+                />
+                <PaymentItem
+                    title="테스트"
+                    category="식비"
+                    :amount="10000"
+                    transactionType="spending"
+                />
+                <PaymentItem
+                    title="테스트"
+                    category="식비"
+                    :amount="10000"
+                    transactionType="spending"
+                />
             </ul>
         </BaseCard>
     </section>
@@ -31,4 +46,5 @@
 <script setup>
 import BaseCard from '@/components/common/Card/BaseCard.vue'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
+import PaymentItem from '../common/PaymentItem/PaymentItem.vue'
 </script>
