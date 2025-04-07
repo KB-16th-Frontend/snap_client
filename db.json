@@ -1,13 +1,86 @@
 {
-  "posts": [
-    { "id": "1", "title": "a title", "views": 100 },
-    { "id": "2", "title": "another title", "views": 200 }
+  "transaction": [
+    {
+      "id": "1",
+      "title": "시홍쓰",
+      "amount": 12000,
+      "spendAt": "2025-04-02",
+      "createdAt": "2025-04-02T12:30:00Z",
+      "description": "토계밥 너무 맛있어",
+      "spendType": "goodSpending",
+      "categoryId": 1,
+      "memberId": 1
+    },
+    {
+      "id": "2",
+      "title": "무이",
+      "amount": 70000,
+      "spendAt": "2025-04-01",
+      "createdAt": "2025-04-01T23:45:00Z",
+      "description": "폭주해버렸다",
+      "spendType": "badSpending",
+      "categoryId": 11,
+      "memberId": 1
+    },
+    {
+      "id": "3",
+      "title": "GYMBOX(어린이대공원역점)",
+      "amount": 150000,
+      "spendAt": "2025-04-01",
+      "createdAt": "2025-04-01T23:45:00Z",
+      "description": "헬스장에 기부 또 했다~",
+      "spendType": "goodSpending",
+      "categoryId": 14,
+      "memberId": 1
+    }
   ],
-  "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+  "categories": [
+    { "id": "1", "transactionType": "spending", "name": "카페", "emoji": "☕" },
+    { "id": "2", "transactionType": "spending", "name": "식비", "emoji": "🍽" },
+    { "id": "3", "transactionType": "spending", "name": "교통", "emoji": "🚗" },
+    { "id": "4", "transactionType": "spending", "name": "의료", "emoji": "🏥" },
+
+    { "id": "5", "transactionType": "spending", "name": "편의점/마트", "emoji": "🛒" },
+    { "id": "6", "transactionType": "spending", "name": "통신/주거비", "emoji": "🪙" },
+    { "id": "7", "transactionType": "spending", "name": "보험/세금", "emoji": "💵" },
+    { "id": "8", "transactionType": "spending", "name": "여행", "emoji": "🧳" },
+
+    { "id": "9", "transactionType": "spending", "name": "쇼핑", "emoji": "🛍" },
+    { "id": "10", "transactionType": "spending", "name": "교육", "emoji": "✍️" },
+    { "id": "11", "transactionType": "spending", "name": "유흥", "emoji": "🍻" },
+    { "id": "12", "transactionType": "spending", "name": "미용", "emoji": "💇" },
+
+    { "id": "13", "transactionType": "spending", "name": "반려동물", "emoji": "🐶" },
+    { "id": "14", "transactionType": "spending", "name": "취미/여가", "emoji": "🎟" },
+    { "id": "15", "transactionType": "spending", "name": "기부/후원", "emoji": "❤" },
+    { "id": "16", "transactionType": "spending", "name": "기타", "emoji": "#️⃣" }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "valueIndex": [
+    {
+      "id": "1",
+      "date": "2025-04-01",
+      "totalGoodSpending": 150000,
+      "totalBadSpending": 70000,
+      "valueScore": 58000,
+      "valueChangeRate": 16,
+      "memberId": 1
+    },
+    {
+      "id": "2",
+      "date": "2025-04-02",
+      "totalGoodSpending": 12000,
+      "totalBadSpending": 0,
+      "valueScore": 59200,
+      "valueChangeRate": 2.07,
+      "memberId": 1
+    }
+  ],
+  "member": [
+    {
+      "id": "1",
+      "nickname": "김스냅",
+      "totalSpend": 235000,
+      "presentValueScore": 58000
+    }
+  ]
 }
