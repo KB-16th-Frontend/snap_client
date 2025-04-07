@@ -1,7 +1,7 @@
 <style scoped></style>
 
 <template>
-    <BaseLayout>홈페이지입니다.</BaseLayout>
+    <BaseLayout>소비 페이지입니다.</BaseLayout>
 </template>
 
 <script setup>
