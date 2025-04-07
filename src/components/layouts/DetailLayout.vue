@@ -1,7 +1,6 @@
 <style scoped>
 .container {
   max-width: 768px !important;
-  /* TODO: 개발 이후 border 삭제 */
   border: 1px solid #000;
   min-height: 100vh;
   padding: 0;
@@ -13,15 +12,16 @@ main {
 </style>
 <template>
   <div class="container bg-gray-1">
-    <CommonHeader />
+    <DetailHeader>
+      <slot name="header"></slot>
+    </DetailHeader>
+
     <main class="d-flex align-items-center flex-column">
       <slot></slot>
     </main>
-    <CommonNav />
   </div>
 </template>
 
 <script setup>
-import CommonHeader from '@/components/layouts/CommonHeader.vue';
-import CommonNav from './CommonNav.vue';
+import DetailHeader from './DetailHeader.vue';
 </script>
