@@ -10,6 +10,7 @@
             :transactionType="payment.transactionType"
         ></PaymentItem>
         <PaymentItem :title="payment.title" :emoji="payment.emoji"></PaymentItem>
+        <PaymentItem :category="payment.category" :emoji="payment.emoji" :amount="payment.amount"></PaymentItem>
     </BaseLayout>
 </template>
 
@@ -22,5 +23,6 @@ const payment = reactive({
     category: '카페',
     amount: 1000,
     transactionType: 'spending',
+    emoji:'🥲'
 })
 </script>

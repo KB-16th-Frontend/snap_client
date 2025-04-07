@@ -20,12 +20,3 @@ export const getRandomColor = () => {
     ]
     return colors[randomNumber]
 }
-
-export const convertCategoryToEmoji = (category) => {
-    switch (category) {
-        case 'q':
-            return '🍕'
-        default:
-            return '🍔'
-    }
-}

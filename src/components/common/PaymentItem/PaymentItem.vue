@@ -21,14 +21,17 @@
 <template>
     <li class="d-flex justify-content-between w-100">
         <div class="d-flex gap-2">
-            <Emoji :emoji="convertCategoryToEmoji(props.category)"></Emoji>
-            <div v-if="category" class="title-category-box">
+            <Emoji :emoji="props.emoji"></Emoji>
+            <div v-if="title&&category" class="title-category-box">
                 <BaseTypography size="md" weight="medium" class="title">
                     {{ props.title }}
                 </BaseTypography>
                 <BaseTypography size="sm" weight="medium" color="gray">{{
                     props.category
                 }}</BaseTypography>
+            </div>
+            <div v-else-if="category" size="md" weight="medium" class="title-box">
+                {{ props.category }}
             </div>
             <div v-else class="title-box">
                 <BaseTypography size="lg" weight="bold">
@@ -51,7 +54,6 @@
 import BaseTypography from '../Typography/BaseTypography.vue'
 import Emoji from './Emoji.vue'
 import { computed, defineProps } from 'vue'
-import { convertCategoryToEmoji } from '@/utils/common'
 const props = defineProps({
     title: {
         type: String,
@@ -65,6 +67,9 @@ const props = defineProps({
     transactionType: {
         type: String,
     },
+    emoji:{
+        type:String
+    }
 })
 
 const amountColor = computed(() => {
