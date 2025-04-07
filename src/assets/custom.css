@@ -1,5 +1,18 @@
+:root {
+    --vt-c-white: #ffffff;
+    --vt-c-gray: #868296;
+    --vt-c-gray-1: #f3f5f7;
+    --vt-c-black: #010101;
+    --vt-c-primary: #173355;
+    --vt-c-light: #f0f0f0;
+    --vt-c-dark: #000047;
+    --vt-c-red: #e42727;
+    --vt-c-blue: #1c60ff;
+    --vt-c-light-blue: #e1ecff;
+}
+
 .bg-gray-1 {
-    background-color: #f3f5f7;
+    background-color: var(--vt-c-gray-1);
 }
 
 .gap-main {
@@ -8,4 +21,12 @@
 
 .fs-xs {
     font-size: 0.5rem;
+}
+
+.text-black {
+    color: var(--vt-c-black);
+}
+
+.text-gray {
+    color: var(--vt-c-gray);
 }

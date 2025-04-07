@@ -10,19 +10,27 @@
 
 <template>
     <nav class="d-flex justify-content-between nav-bar w-100 bg-white">
-        <!-- TODO: nav button -->
-        <!-- <<router-link ></router-link> -->
-        <RouterLink>
-            <button class="d-flex flex-column align-items-center gap-1 bg-white border-0">
-                <i class="fa-solid fa-house-chimney"></i>
-                <span class="fs-xs">홈</span>
-            </button>
+        <RouterLink
+            v-for="menu in MENUS"
+            :key="menu.name"
+            :to="{ name: menu.name }"
+            class="text-decoration-none d-flex flex-column align-items-center gap-1 bg-white border-0"
+            :class="{
+                'text-black': $route.name === menu.name,
+                'text-secondary': $route.name !== menu.name,
+            }"
+        >
+            <i class="fa-solid" :class="menu.icon"></i>
+            <span class="fs-xs">{{ menu.label }}</span>
         </RouterLink>
-        <li>네브바1</li>
-        <li>네브바2</li>
-        <li>네브바3</li>
-        <li>네브바4</li>
     </nav>
 </template>
 
-<script setup></script>
+<script setup>
+import { MENUS } from '@/common/constants'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+console.log(route.name)
+</script>
