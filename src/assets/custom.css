@@ -11,17 +11,30 @@
     --vt-c-light-blue: #e1ecff;
 }
 
+/* background */
+
 .bg-gray-1 {
     background-color: var(--vt-c-gray-1);
 }
+
+/* gap */
 
 .gap-main {
     gap: 2rem;
 }
 
+/* font-weight */
+.fw-black {
+    font-weight: 900;
+}
+
+/* font-size */
+
 .fs-xs {
     font-size: 0.5rem;
 }
+
+/* text-color */
 
 .text-black {
     color: var(--vt-c-black);
