@@ -1,4 +1,6 @@
 /* @import './base.css'; */
+@import './reset.css';
+@import './custom.css';
 
 @font-face {
     font-family: 'Pretendard';

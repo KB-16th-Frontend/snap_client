@@ -32,6 +32,28 @@
 
 .fs-xs {
     font-size: 0.5rem;
+    line-height: 0.75rem;
+}
+
+.fs-sm {
+    font-size: 0.75rem;
+    line-height: 1.125rem;
+}
+.fs-md {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+.fs-lg {
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+}
+.fs-xl {
+    font-size: 2rem;
+    line-height: 3rem;
+}
+.fs-2xl {
+    font-size: 4rem;
+    line-height: 6rem;
 }
 
 /* text-color */
@@ -42,4 +64,29 @@
 
 .text-gray {
     color: var(--vt-c-gray);
+}
+
+.text-gray-1 {
+    color: var(--vt-c-gray-1);
+}
+.text-white {
+    color: var(--vt-c-white);
+}
+.text-primary {
+    color: var(--vt-c-primary);
+}
+.text-light {
+    color: var(--vt-c-light);
+}
+.text-dark {
+    color: var(--vt-c-dark);
+}
+.text-red {
+    color: var(--vt-c-red);
+}
+.text-blue {
+    color: var(--vt-c-blue);
+}
+.text-light-blue {
+    color: var(--vt-c-light-blue);
 }
