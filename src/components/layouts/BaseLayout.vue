@@ -13,9 +13,8 @@ main {
 <template>
     <div class="container bg-gray-1">
         <CommonHeader />
-        <main class="d-flex align-items-center flex-column gap-main">
+        <main class="d-flex align-items-center flex-column">
             <slot></slot>
-            <CommonFooter />
         </main>
         <CommonNav />
     </div>
@@ -24,5 +23,4 @@ main {
 <script setup>
 import CommonHeader from '@/components/layouts/CommonHeader.vue'
 import CommonNav from './CommonNav.vue'
-import CommonFooter from '@/components/layouts/CommonFooter.vue'
 </script>

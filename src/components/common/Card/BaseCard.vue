@@ -5,7 +5,7 @@ section {
 </style>
 
 <template>
-    <section class="bg-white rounded-4 border border-gray-200 w-100 d-flex flex-column gap-3">
+    <section class="bg-white rounded-4 border border-gray-200 w-100 d-flex flex-column">
         <div class="d-flex align-items-center justify-content-between">
             <BaseTypography tag="h3" color="gray" weight="bold" size="md">
                 {{ title }}</BaseTypography
