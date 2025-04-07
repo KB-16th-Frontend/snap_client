@@ -2,11 +2,17 @@
 
 <template>
     <BaseLayout>
-        <BaseCard title="소비 기록 상세" toName="payments">abcdefg</BaseCard>
+        <div class="d-flex flex-column gap-block w-100">
+            <MainBlock />
+            <PaymentsBlock />
+            <CommonFooter />
+        </div>
     </BaseLayout>
 </template>
 
 <script setup>
-import BaseCard from '@/components/common/Card/BaseCard.vue'
 import BaseLayout from '@/components/layouts/BaseLayout.vue'
+import MainBlock from '@/components/home/MainBlock.vue'
+import PaymentsBlock from '@/components/home/PaymentsBlock.vue'
+import CommonFooter from '@/components/layouts/CommonFooter.vue'
 </script>

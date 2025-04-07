@@ -1,7 +1,9 @@
 <style scoped>
 .nav-bar {
     padding: 0.75rem 2rem;
-    position: absolute;
+    position: fixed;
+    max-width: 768px;
+    margin: auto;
     bottom: 0;
     left: 0;
     right: 0;
@@ -17,7 +19,7 @@
             class="text-decoration-none d-flex flex-column align-items-center gap-1 bg-white border-0"
             :class="{
                 'text-black': $route.name === menu.name,
-                'text-secondary': $route.name !== menu.name,
+                'text-gray': $route.name !== menu.name,
             }"
         >
             <i class="fa-solid" :class="menu.icon"></i>

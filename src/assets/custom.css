@@ -4,6 +4,7 @@
     --vt-c-gray-1: #f3f5f7;
     --vt-c-black: #010101;
     --vt-c-primary: #173355;
+    --vt-c-secondary: #fbc121;
     --vt-c-light: #f0f0f0;
     --vt-c-dark: #000047;
     --vt-c-red: #e42727;
@@ -19,7 +20,7 @@
 
 /* gap */
 
-.gap-main {
+.gap-block {
     gap: 2rem;
 }
 
@@ -59,11 +60,11 @@
 /* text-color */
 
 .text-black {
-    color: var(--vt-c-black);
+    color: var(--vt-c-black) !important;
 }
 
 .text-gray {
-    color: var(--vt-c-gray);
+    color: var(--vt-c-gray) !important;
 }
 
 .text-gray-1 {
@@ -73,13 +74,16 @@
     color: var(--vt-c-white);
 }
 .text-primary {
-    color: var(--vt-c-primary);
+    color: var(--vt-c-primary) !important;
+}
+.text-secondary {
+    color: var(--vt-c-secondary) !important;
 }
 .text-light {
-    color: var(--vt-c-light);
+    color: var(--vt-c-light) !important;
 }
 .text-dark {
-    color: var(--vt-c-dark);
+    color: var(--vt-c-dark) !important;
 }
 .text-red {
     color: var(--vt-c-red);
@@ -89,4 +93,10 @@
 }
 .text-light-blue {
     color: var(--vt-c-light-blue);
+}
+
+/* button */
+
+.btn-primary {
+    background-color: var(--vt-c-primary) !important;
 }
