@@ -24,18 +24,21 @@
                     title="테스트"
                     category="식비"
                     :amount="10000"
+                    emoji="🍔"
                     transactionType="spending"
                 />
                 <PaymentItem
                     title="테스트"
                     category="식비"
                     :amount="10000"
+                    emoji="🍔"
                     transactionType="spending"
                 />
                 <PaymentItem
                     title="테스트"
                     category="식비"
                     :amount="10000"
+                    emoji="🍔"
                     transactionType="spending"
                 />
             </ul>
