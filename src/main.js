@@ -1,6 +1,4 @@
-// TODO: 스타일 커스텀 필요
 import 'bootstrap/dist/css/bootstrap.min.css'
-import '@/assets/custom.css'
 import './assets/main.css'
 
 import { createApp } from 'vue'

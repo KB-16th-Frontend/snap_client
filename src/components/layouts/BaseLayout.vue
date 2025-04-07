@@ -14,10 +14,6 @@ main {
     <div class="container bg-gray-1">
         <CommonHeader />
         <main class="d-flex align-items-center flex-column gap-main">
-            <i class="fa-solid fa-house-chimney"></i>
-            <i class="fa-solid fa-credit-card"></i>
-            <i class="fa-solid fa-chart-simple"></i>
-            <i class="fa-solid fa-user"></i>
             <slot></slot>
             <CommonFooter />
         </main>
