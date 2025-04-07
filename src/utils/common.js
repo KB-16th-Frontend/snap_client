@@ -6,7 +6,6 @@ export const sum = (a, b) => {
 
 export const getRandomColor = () => {
     const randomNumber = Math.floor(Math.random() * 7 + 1)
-    console.log(randomNumber)
 
     const colors = [
         '#FBC121',
