@@ -1,0 +1,11 @@
+.bg-gray-1 {
+    background-color: #f3f5f7;
+}
+
+.gap-main {
+    gap: 2rem;
+}
+
+.fs-xs {
+    font-size: 0.5rem;
+}
