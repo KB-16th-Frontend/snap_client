@@ -1,19 +1,21 @@
 <template>
-    <BaseTypography size="lg" weight="bold" class="w-100 text-start mb-2 pb-1"
+    <BaseTypography size="lg" weight="bold" color="primary" class="text-start mx-3 pb-1 mt-4"
         >가치/낭비 소비</BaseTypography
     >
-    <BaseCard>
-        <BasePieChart :labels="SPEND_TYPES" :data="[goodSpending, badSpending]" />
-        <div
-            v-for="(spendType, index) in SPEND_TYPES"
-            class="d-flex justify-content-between w-100 mb-2"
-        >
-            <BaseTypography size="md" weight="bold"> {{ spendType }}</BaseTypography>
-            <BaseTypography size="md" weight="bold" color="blue">
-                {{ spendings[index].toLocaleString() }}원
-            </BaseTypography>
-        </div>
-    </BaseCard>
+    <div class="d-flex justify-content-center">
+        <BaseCard class="my-2 mx-3">
+            <BasePieChart :labels="SPEND_TYPES" :data="[goodSpending, badSpending]" />
+            <div
+                v-for="(spendType, index) in SPEND_TYPES"
+                class="d-flex justify-content-between m-2"
+            >
+                <BaseTypography size="md" weight="bold"> {{ spendType }}</BaseTypography>
+                <BaseTypography size="md" weight="bold" color="blue">
+                    {{ spendings[index].toLocaleString() }}원
+                </BaseTypography>
+            </div>
+        </BaseCard>
+    </div>
 </template>
 
 <script setup>
