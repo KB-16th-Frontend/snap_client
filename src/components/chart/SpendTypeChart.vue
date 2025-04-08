@@ -31,7 +31,5 @@ const props = defineProps({
     },
 })
 
-const spendings = computed(() => {
-    return [props.goodSpending, props.badSpending]
-})
+const spendings = [props.goodSpending, props.badSpending]
 </script>

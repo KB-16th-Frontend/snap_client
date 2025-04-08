@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { Chart, PieController, ArcElement, Tooltip, Legend, Title } from 'chart.js'
 import { PIECHART_COLORS } from '@/common/styles.js'
 
@@ -63,5 +63,7 @@ const renderChart = () => {
         },
     })
 }
-renderChart()
+onMounted(() => {
+    renderChart()
+})
 </script>
