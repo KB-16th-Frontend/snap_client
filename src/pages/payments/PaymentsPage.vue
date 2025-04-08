@@ -3,7 +3,7 @@
 <template>
     <BaseLayout class="pb-5">
         <ThisMonthSpending name="김스냅"></ThisMonthSpending>
-        <div class="d-flex flex-column gap-block w-100 p-4">
+        <div class="d-flex flex-column w-100 ps-3 pe-3 pb-5">
             <SeeDetailBlock :income="income" :spending="spending"></SeeDetailBlock>
             <SpendingReport category="통신/주거비"></SpendingReport>
             <AddNewSpending></AddNewSpending>

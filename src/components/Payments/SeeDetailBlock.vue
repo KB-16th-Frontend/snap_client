@@ -1,6 +1,12 @@
 <template>
     <section class="w-100">
-        <BaseTypography tag="h2" color="primary" size="lg" weight="bold" class="text-start w-100">
+        <BaseTypography
+            tag="h2"
+            color="primary"
+            size="lg"
+            weight="bold"
+            class="text-start w-100 mt-4"
+        >
             소비 기록 상세 보기
         </BaseTypography>
         <BaseCard title="소비 기록 상세" class="mt-3" toName="">
