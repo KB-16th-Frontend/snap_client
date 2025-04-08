@@ -29,7 +29,7 @@ const renderChart = () => {
     chartInstance = new Chart(pieCanvas.value, {
         type: 'pie',
         data: {
-            labels: props.labels,
+            labels: props.labels.map((lable) => lable.title),
             datasets: [
                 {
                     data: props.data,

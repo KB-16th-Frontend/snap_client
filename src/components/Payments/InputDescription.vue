@@ -1,19 +1,23 @@
 <template>
     <div>
         <BaseTypography tag="h2" size="lg" color="primary" weight="bold" class="text-start w-100">
-            어떤 {{ transactionType === 'income' ? '수입' : '지출' }}이 이뤄졌나요?
+            이제 마지막이에요!
         </BaseTypography>
         <label class="w-100 mt-3">
             <BaseTypography size="md" color="gray" weight="medium" class="text-start w-100"
-                >{{ transactionType === 'income' ? '수입' : '지출' }} 이름</BaseTypography
+                >상세 설명 (선택 사항)</BaseTypography
             >
-            <input
+            <textarea
                 type="text"
                 class="form-control w-100"
-                placeholder="이름을 입력해주세요"
-                :value="title"
+                placeholder="최대 20자까지 기록이 가능해요!"
+                :value="description"
                 @input="onChange"
-            />
+            >
+            </textarea>
+            <BaseTypography size="sm" color="blue" weight="medium">
+                {{ guideMessage.length > 0 ? guideMessage : ' ' }}
+            </BaseTypography>
             <BaseTypography size="sm" color="red" weight="medium">
                 {{ errorMessage.length > 0 ? errorMessage : ' ' }}
             </BaseTypography>
@@ -25,24 +29,20 @@
 import BaseTypography from '../common/Typography/BaseTypography.vue'
 
 defineProps({
-    transactionType: {
-        type: String,
-        required: true,
-        validator: (value) => {
-            return ['income', 'spending'].includes(value)
-        },
-    },
-    title: {
+    description: {
         type: String,
         default: '',
     },
-
     onChange: {
         type: Function,
         default: () => {},
         validator: (value) => {
             return typeof value === 'function'
         },
+    },
+    guideMessage: {
+        type: String,
+        default: '',
     },
     errorMessage: {
         type: String,

@@ -55,6 +55,10 @@
 
 /* background */
 
+.bg-primary {
+    background-color: var(--vt-c-primary) !important;
+}
+
 .bg-gray-1 {
     background-color: var(--vt-c-gray-1);
 }

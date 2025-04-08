@@ -28,8 +28,6 @@ export const MENUS = [
     },
 ]
 
-export const SPEND_TYPES = ['가치 소비', '낭비 소비']
-
 export const MY_PAGE_MENUS = [
     { title: '내 정보', elements: [{ name: '이름 설정', path: '' }] },
     { title: '시스템 설정', elements: [{ name: '테마 변경', path: '' }] },
@@ -40,4 +38,8 @@ export const MY_PAGE_MENUS = [
             { name: '고객 문의', path: '' },
         ],
     },
+
+export const SPEND_TYPES = [
+    { title: '가치 소비', textColor: 'text-blue' },
+    { title: '낭비 소비', textColor: 'text-red' },
 ]

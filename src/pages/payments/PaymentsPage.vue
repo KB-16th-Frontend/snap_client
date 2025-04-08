@@ -1,28 +1,23 @@
 <style scoped></style>
 
 <template>
-    <BaseLayout>
-        <PaymentItem
-            :title="payment.title"
-            :category="payment.category"
-            :amount="payment.amount"
-            :emoji="payment.emoji"
-            :transactionType="payment.transactionType"
-        />
-        <PaymentItem :title="payment.title" :emoji="payment.emoji"></PaymentItem>
-        <PaymentItem :title="payment.title" :emoji="payment.emoji" :amount="30000"></PaymentItem>
+    <BaseLayout class="pb-5">
+        <ThisMonthSpending name="김스냅"></ThisMonthSpending>
+        <div class="d-flex flex-column w-100 ps-3 pe-3 pb-5">
+            <SeeDetailBlock :income="income" :spending="spending"></SeeDetailBlock>
+            <SpendingReport category="통신/주거비"></SpendingReport>
+            <AddNewSpending></AddNewSpending>
+        </div>
     </BaseLayout>
 </template>
 
 <script setup>
 import BaseLayout from '@/components/layouts/BaseLayout.vue'
-import PaymentItem from '@/components/common/PaymentItem/PaymentItem.vue'
-import { reactive } from 'vue'
-const payment = reactive({
-    title: 'GYMBOX (어린이대공원역점)',
-    category: '카페',
-    amount: 1000,
-    transactionType: 'spending',
-    emoji: '🍔',
-})
+import ThisMonthSpending from '@/components/Payments/ThisMonthSpending.vue'
+import SeeDetailBlock from '@/components/Payments/SeeDetailBlock.vue'
+import SpendingReport from '@/components/Payments/SpendingReport.vue'
+import AddNewSpending from '@/components/Payments/AddNewSpending.vue'
+import { ref } from 'vue'
+const income = ref(234567)
+const spending = ref(123456)
 </script>

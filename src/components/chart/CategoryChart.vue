@@ -19,6 +19,6 @@ const props = defineProps({
         type: Array,
     },
 })
-const lables = props.categorySpendings.map((item) => item.label)
+const lables = props.categorySpendings
 const data = props.categorySpendings.map((item) => Number(item.data))
 </script>
