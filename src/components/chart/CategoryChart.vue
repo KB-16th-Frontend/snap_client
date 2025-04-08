@@ -1,10 +1,12 @@
 <template>
-    <BaseTypography size="lg" weight="bold" class="w-100 text-start mt-4 mb-3"
+    <BaseTypography size="lg" weight="bold" color="primary" class="text-start mx-3 pb-1 mt-4"
         >카테고리별 지출</BaseTypography
     >
-    <BaseCard>
-        <BasePieChart :labels="lables" :data="data" />
-    </BaseCard>
+    <div class="d-flex justify-content-center">
+        <BaseCard class="my-2 mx-3">
+            <BasePieChart :labels="lables" :data="data" />
+        </BaseCard>
+    </div>
 </template>
 
 <script setup>
