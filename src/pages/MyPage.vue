@@ -8,7 +8,7 @@
             </BaseTypography>
             <div class="bg-white pt-3 pb-3" role="button" v-for="element in menus.elements">
                 <BaseTypography size="md" weight="medium" color="primary" class="mx-3">
-                    {{ element }}</BaseTypography
+                    {{ element.name }}</BaseTypography
                 >
             </div>
         </div>
