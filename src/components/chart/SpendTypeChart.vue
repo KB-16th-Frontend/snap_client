@@ -9,8 +9,9 @@
                 <BaseTypography size="md" weight="bold" class="d-flex justify-content-between p-2">
                     {{ spendType.title }}
                     <span :class="spendType.textColor">
-                        {{ spendings[index].toLocaleString() }} </span
-                    >원
+                        {{ spendings[index].toLocaleString() }}
+                        <span class="text-black">원</span>
+                    </span>
                 </BaseTypography>
             </div>
         </BaseCard>

@@ -52,10 +52,10 @@ const totalSpending = ref(100000)
 const goodSpending = ref(80000)
 const badSpending = ref(20000)
 const categorySpendings = ref([
-    { label: '식비', data: 30000 },
-    { label: '교통비', data: 20000 },
-    { label: '문화생활', data: 10000 },
-    { label: '의류', data: 5000 },
-    { label: '기타', data: 2000 },
+    { title: '식비', data: 30000 },
+    { title: '교통비', data: 20000 },
+    { title: '문화생활', data: 10000 },
+    { title: '의류', data: 5000 },
+    { title: '기타', data: 2000 },
 ])
 </script>
