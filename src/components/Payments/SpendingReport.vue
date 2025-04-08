@@ -1,5 +1,5 @@
 <template>
-    <section class="w-100">
+    <section class="w-100 mt-4">
         <BaseTypography tag="h2" color="primary" size="lg" weight="bold" class="text-start w-100">
             지출 분석 리포트
         </BaseTypography>
