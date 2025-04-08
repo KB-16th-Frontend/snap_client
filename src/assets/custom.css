@@ -58,6 +58,9 @@
 .bg-gray-1 {
     background-color: var(--vt-c-gray-1);
 }
+.bg-light-blue {
+    background-color: var(--vt-c-light-blue);
+}
 
 .bg-light-blue {
     background-color: var(--vt-c-light-blue);

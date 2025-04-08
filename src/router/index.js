@@ -39,6 +39,11 @@ const router = createRouter({
             name: 'mypage',
             component: () => import('../pages/MyPage.vue'),
         },
+        {
+            path: '/paymentsReport',
+            name: 'report',
+            component: () => import('../pages/PaymentsReportPage.vue'),
+        },
     ],
 })
 
