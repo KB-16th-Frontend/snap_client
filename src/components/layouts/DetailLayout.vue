@@ -1,27 +1,32 @@
 <style scoped>
 .container {
-  max-width: 768px !important;
-  border: 1px solid #000;
-  min-height: 100vh;
-  padding: 0;
-  position: relative;
-}
-main {
-  padding: 2rem 1rem 6rem;
+    max-width: 768px !important;
+    border: 1px solid #000;
+    min-height: 100vh;
+    padding: 0;
+    position: relative;
 }
 </style>
 <template>
-  <div class="container bg-gray-1">
-    <DetailHeader>
-      <slot name="header"></slot>
-    </DetailHeader>
+    <div class="container bg-gray-1">
+        <DetailHeader :onBack="onBack">
+            <slot name="header"></slot>
+        </DetailHeader>
 
-    <main class="d-flex align-items-center flex-column">
-      <slot></slot>
-    </main>
-  </div>
+        <slot></slot>
+    </div>
 </template>
 
 <script setup>
-import DetailHeader from './DetailHeader.vue';
+import DetailHeader from './DetailHeader.vue'
+
+defineProps({
+    onBack: {
+        type: Function,
+        default: () => {},
+        validator: (value) => {
+            return typeof value === 'function'
+        },
+    },
+})
 </script>
