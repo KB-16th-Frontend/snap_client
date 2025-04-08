@@ -1,9 +1,9 @@
 <template>
-    <BaseTypography size="lg" weight="bold" color="primary" class="text-start mx-3 pb-1 mt-4"
+    <BaseTypography size="lg" weight="bold" color="primary" class="text-start mx-4 mt-4"
         >카테고리별 지출</BaseTypography
     >
     <div class="d-flex justify-content-center">
-        <BaseCard class="my-2 mx-3">
+        <BaseCard class="my-3 mx-4">
             <BasePieChart :labels="lables" :data="data" />
         </BaseCard>
     </div>
