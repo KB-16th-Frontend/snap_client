@@ -1,7 +1,7 @@
 <style scoped></style>
 
 <template>
-    <BaseLayout>
+    <DetailLayout>
         <section class="w-100 pb-2 bg-light-blue">
             <BaseTypography size="lg" weight="bold" class="w-100 text-start px-3 pt-5 pb-3"
                 >{{ month }}월 지출</BaseTypography
@@ -10,16 +10,21 @@
                 >{{ totalSpending.toLocaleString() }}원</BaseTypography
             >
         </section>
-        <SpendTypeChart :goodSpending="goodSpending" :badSpending="badSpending"></SpendTypeChart>
-        <CategoryChart :categorySpendings="categorySpendings"></CategoryChart>
-    </BaseLayout>
+        <section class="px-3 pb-4">
+            <SpendTypeChart
+                :goodSpending="goodSpending"
+                :badSpending="badSpending"
+            ></SpendTypeChart>
+            <CategoryChart :categorySpendings="categorySpendings"></CategoryChart>
+        </section>
+    </DetailLayout>
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
-import BaseLayout from '@/components/layouts/BaseLayout.vue'
+import DetailLayout from '@/components/layouts/DetailLayout.vue'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
 import SpendTypeChart from '@/components/chart/SpendTypeChart.vue'
 import CategoryChart from '@/components/chart/CategoryChart.vue'

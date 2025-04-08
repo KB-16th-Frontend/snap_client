@@ -5,7 +5,7 @@
     <div class="d-flex justify-content-center">
         <BaseCard class="my-3 mx-3">
             <BasePieChart :labels="SPEND_TYPES" :data="spendings" />
-            <div v-for="(spendType, index) in SPEND_TYPES">
+            <div v-for="(spendType, index) in SPEND_TYPES" :key="index">
                 <BaseTypography size="md" weight="bold" class="d-flex justify-content-between p-2">
                     {{ spendType.title }}
                     <span :class="spendType.textColor">
@@ -19,9 +19,9 @@
 </template>
 
 <script setup>
-import BasePieChart from '@/components/chart/BasePieChart.vue'
 import BaseCard from '@/components/common/Card/BaseCard.vue'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
+import BasePieChart from './BasePieChart.vue'
 import { SPEND_TYPES } from '@/common/constants'
 
 const props = defineProps({

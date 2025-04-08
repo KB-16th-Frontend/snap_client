@@ -31,7 +31,7 @@ const router = createRouter({
         },
         {
             path: '/payments/statistics',
-            name: 'statistics',
+            name: 'payment-statistics',
             component: () => import('../pages/StatisticsPage.vue'),
         },
         {
@@ -46,7 +46,7 @@ const router = createRouter({
         },
         {
             path: '/:NotFound(.*)',
-            component: ()=>import(`../pages/NotFoundPage.vue`),
+            component: () => import(`../pages/NotFoundPage.vue`),
         },
     ],
 })
