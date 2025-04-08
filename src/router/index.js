@@ -39,7 +39,7 @@ const router = createRouter({
         {
             path: '/paymentsReport',
             name: 'report',
-            component: () => import('../pages/PaymentsReportPage.vue'),
+            component: () => import('../pages/StatisticsPage.vue'),
         },
     ],
 })
