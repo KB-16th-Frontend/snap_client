@@ -28,4 +28,7 @@ export const MENUS = [
     },
 ]
 
-export const SPEND_TYPES = ['가치 소비', '낭비 소비']
+export const SPEND_TYPES = [
+    { title: '가치 소비', textColor: 'text-blue' },
+    { title: '낭비 소비', textColor: 'text-red' },
+]
