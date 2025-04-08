@@ -3,10 +3,10 @@
 <template>
     <BaseLayout>
         <section class="w-100 pb-2 bg-light-blue">
-            <BaseTypography size="lg" weight="bold" class="w-100 text-start mx-3 mb-1 pt-5"
+            <BaseTypography size="lg" weight="bold" class="w-100 text-start px-3 pt-5 pb-3"
                 >{{ month }}월 지출</BaseTypography
             >
-            <BaseTypography color="dark" size="xl" weight="black" class="text-start m-3"
+            <BaseTypography color="dark" size="xl" weight="black" class="text-start px-3"
                 >{{ totalSpending.toLocaleString() }}원</BaseTypography
             >
         </section>
