@@ -40,6 +40,14 @@ const statisticsData = fetchStatistics({
     memberId: memberId.value,
 })
 
+onMounted(() => {
+    // totalSpending.value = statisticsData.totalSpending
+    // goodSpending.value = statisticsData.goodSpending
+    // badSpending.value = statisticsData.badSpending
+    // categorySpendings.value = statisticsData.categorySpendings
+})
+
+// 테스트용 데이터
 const totalSpending = ref(100000)
 const goodSpending = ref(80000)
 const badSpending = ref(20000)
@@ -50,11 +58,4 @@ const categorySpendings = ref([
     { label: '의류', data: 5000 },
     { label: '기타', data: 2000 },
 ])
-
-onMounted(() => {
-    // totalSpending.value = statisticsData.totalSpending
-    // goodSpending.value = statisticsData.goodSpending
-    // badSpending.value = statisticsData.badSpending
-    // categorySpendings.value = statisticsData.categorySpendings
-})
 </script>
