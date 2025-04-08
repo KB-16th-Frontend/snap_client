@@ -32,3 +32,9 @@ export const SPEND_TYPES = [
     { title: '가치 소비', textColor: 'text-blue' },
     { title: '낭비 소비', textColor: 'text-red' },
 ]
+
+export const MY_PAGE_MENUS = [
+    { title: '내 정보', elements: ['이름 설정'] },
+    { title: '시스템 설정', elements: ['테마 변경'] },
+    { title: '기타', elements: ['개발자 정보 확인', '고객 문의'] },
+]
