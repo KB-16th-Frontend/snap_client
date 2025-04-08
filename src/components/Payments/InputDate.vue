@@ -1,19 +1,13 @@
 <template>
     <div>
         <BaseTypography tag="h2" size="lg" color="primary" weight="bold" class="text-start w-100">
-            어떤 {{ transactionType === 'income' ? '수입' : '지출' }}이 이뤄졌나요?
+            언제 {{ transactionType === 'income' ? '돈이 들어왔나요?' : '소비하셨나요?' }}
         </BaseTypography>
         <label class="w-100 mt-3">
             <BaseTypography size="md" color="gray" weight="medium" class="text-start w-100"
-                >{{ transactionType === 'income' ? '수입' : '지출' }} 이름</BaseTypography
+                >{{ transactionType === 'income' ? '입금' : '소비' }} 날짜</BaseTypography
             >
-            <input
-                type="text"
-                class="form-control w-100"
-                placeholder="이름을 입력해주세요"
-                :value="title"
-                @input="onChange"
-            />
+            <input type="date" class="form-control w-100" :value="date" @input="onChange" />
             <BaseTypography size="sm" color="red" weight="medium">
                 {{ errorMessage.length > 0 ? errorMessage : ' ' }}
             </BaseTypography>
@@ -32,17 +26,20 @@ defineProps({
             return ['income', 'spending'].includes(value)
         },
     },
-    title: {
+    date: {
         type: String,
         default: '',
     },
-
     onChange: {
         type: Function,
         default: () => {},
         validator: (value) => {
             return typeof value === 'function'
         },
+    },
+    guideMessage: {
+        type: String,
+        default: '',
     },
     errorMessage: {
         type: String,

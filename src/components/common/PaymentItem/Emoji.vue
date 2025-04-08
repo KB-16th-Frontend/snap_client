@@ -8,6 +8,7 @@
 }
 .emoji-text {
     position: absolute;
+    font-size: 1.5rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -19,7 +20,7 @@
     </div>
 </template>
 <script setup>
-import { defineProps, reactive } from 'vue'
+import { defineProps } from 'vue'
 import { getRandomColor } from '@/utils/common'
 const props = defineProps({
     emoji: {
