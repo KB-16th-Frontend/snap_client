@@ -11,22 +11,3 @@ export const useCounterStore = defineStore('counter', {
     // method
     actions: {},
 })
-
-export const usePaymentsReportStore = defineStore('PaymentsReport', {
-    state: () => ({
-        month: 0,
-        totalSpending: 0,
-        goodSpending: 0,
-        badSpending: 0,
-        categorySpendings: [], // 예: [{ label: '식비', data: 30000 }]
-    }),
-    actions: {
-        setReportData({ month, totalSpending, goodSpending, badSpending, categorySpendings }) {
-            this.month = month
-            this.totalSpending = totalSpending
-            this.goodSpending = goodSpending
-            this.badSpending = badSpending
-            this.categorySpendings = categorySpendings
-        },
-    },
-})
