@@ -4,14 +4,18 @@
     >
     <BaseCard>
         <BasePieChart :labels="['가치 소비', '낭비 소비']" :data="[goodSpending, badSpending]" />
-        <BaseTypography size="md" weight="bold" class="d-flex justify-content-between w-100 mb-2">
-            <span>가치 소비</span>
-            <span>{{ goodSpending.toLocaleString() }}원</span>
-        </BaseTypography>
-        <BaseTypography size="md" weight="bold" class="d-flex justify-content-between w-100">
-            <span>낭비 소비</span>
-            <span>{{ badSpending.toLocaleString() }}원</span>
-        </BaseTypography>
+        <div class="d-flex justify-content-between w-100 mb-2">
+            <BaseTypography size="md" weight="bold"> 가치 소비 </BaseTypography>
+            <BaseTypography size="md" weight="bold" color="blue">
+                {{ goodSpending.toLocaleString() }}원
+            </BaseTypography>
+        </div>
+        <div class="d-flex justify-content-between w-100 mb-2">
+            <BaseTypography size="md" weight="bold"> 낭비 소비 </BaseTypography>
+            <BaseTypography size="md" weight="bold" color="red">
+                {{ badSpending.toLocaleString() }}원
+            </BaseTypography>
+        </div>
     </BaseCard>
 </template>
 
