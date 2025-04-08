@@ -18,6 +18,13 @@ const router = createRouter({
             path: '/payments',
             name: 'payments',
             component: () => import('../pages/PaymentsPage.vue'),
+            children: [
+                {
+                    path: 'statistics',
+                    name: 'statistics',
+                    component: () => import('../pages/StatisticsPage.vue'),
+                },
+            ],
         },
         {
             path: '/charts',
