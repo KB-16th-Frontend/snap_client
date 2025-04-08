@@ -4,14 +4,13 @@
     >
     <div class="d-flex justify-content-center">
         <BaseCard class="my-3 mx-3">
-            <BasePieChart :labels="SPEND_TYPES" :data="[goodSpending, badSpending]" />
-            <div
-                v-for="(spendType, index) in SPEND_TYPES"
-                class="d-flex justify-content-between p-2"
-            >
-                <BaseTypography size="md" weight="bold"> {{ spendType }}</BaseTypography>
-                <BaseTypography size="md" weight="bold" color="blue">
-                    {{ spendings[index].toLocaleString() }}원
+            <BasePieChart :labels="SPEND_TYPES" :data="spendings" />
+            <div v-for="(spendType, index) in SPEND_TYPES">
+                <BaseTypography size="md" weight="bold" class="d-flex justify-content-between p-2">
+                    {{ spendType.title }}
+                    <span :class="spendType.textColor">
+                        {{ spendings[index].toLocaleString() }}원
+                    </span>
                 </BaseTypography>
             </div>
         </BaseCard>
