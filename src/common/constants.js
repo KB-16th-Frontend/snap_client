@@ -27,3 +27,5 @@ export const MENUS = [
         path: '/mypage',
     },
 ]
+
+export const SPEND_TYPES = ['가치 소비', '낭비 소비']
