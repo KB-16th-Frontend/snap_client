@@ -17,12 +17,34 @@
 </template>
 
 <script setup>
-import { usePaymentsReportStore } from '@/stores/counter'
+import { onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
+
 import BaseLayout from '@/components/layouts/BaseLayout.vue'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
 import SpendTypeChart from '@/components/chart/SpendTypeChart.vue'
 import CategoryChart from '@/components/chart/CategoryChart.vue'
+import { fetchStatistics } from '@/api/payments'
 
-const { month, totalSpending, goodSpending, badSpending, categorySpendings } =
-    usePaymentsReportStore()
+const route = useRoute()
+const yearMonth = ref(route.query.yearMonth)
+const memberId = ref(Number(route.query.memberId))
+
+const month = ref(yearMonth.value.split('-')[1])
+const totalSpending = ref(0)
+const goodSpending = ref(0)
+const badSpending = ref(0)
+const categorySpendings = ref([])
+
+const statisticsData = fetchStatistics({
+    yearMonth: yearMonth.value,
+    memberId: memberId.value,
+})
+
+onMounted(() => {
+    totalSpending.value = statisticsData.totalSpending
+    goodSpending.value = statisticsData.goodSpending
+    badSpending.value = statisticsData.badSpending
+    categorySpendings.value = statisticsData.categorySpendings
+})
 </script>
