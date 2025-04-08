@@ -2,7 +2,7 @@ import { instance } from './common'
 
 export const fetchStatistics = async (request) => {
     try {
-        const response = await instance.get('/payments/statistics', {
+        const response = await instance.get('/transaction', {
             ...request,
         })
         return response.data
