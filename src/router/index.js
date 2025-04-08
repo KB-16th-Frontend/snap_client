@@ -28,6 +28,12 @@ const router = createRouter({
             path: '/payments/edit/:id',
             name: 'edit-payment',
             component: () => import('../pages/payments/EditPaymentsPage.vue'),
+            component: () => import('../pages/PaymentsPage.vue'),
+        },
+        {
+            path: '/payments/statistics',
+            name: 'statistics',
+            component: () => import('../pages/StatisticsPage.vue'),
         },
         {
             path: '/charts',
