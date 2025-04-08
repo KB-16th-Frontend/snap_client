@@ -10,10 +10,8 @@
                 스냅과 함께 하루를 기록해보세요!</BaseTypography
             >
             <!-- TODO: to 목적지 추가 -->
-            <router-link class="btn btn-primary mt-3" to="/payments">
-                <BaseTypography color="white" size="md" weight="bold"
-                    >수입 및 지출 추가하기</BaseTypography
-                >
+            <router-link class="btn btn-primary mt-3 fw-bold" to="/payments">
+                수입 및 지출 추가하기
             </router-link>
         </BaseCard>
         <!-- TODO: toName 목적지 변경 -->

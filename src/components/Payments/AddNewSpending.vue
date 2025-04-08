@@ -9,10 +9,8 @@
                 새로운 수입 및 지출이 생겼나요?<br />스냅과 함께 하루를
                 기록해보세요!</BaseTypography
             >
-            <router-link class="btn btn-primary mt-3" to="/">
-                <BaseTypography color="white" size="medium" weight="bold"
-                    >수입 및 지출 추가하기</BaseTypography
-                >
+            <router-link class="btn btn-primary mt-3 fw-bold" to="/">
+                수입 및 지출 추가하기
             </router-link>
         </BaseCard>
     </section>
