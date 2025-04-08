@@ -3,17 +3,14 @@
         >가치/낭비 소비</BaseTypography
     >
     <BaseCard>
-        <BasePieChart :labels="['가치 소비', '낭비 소비']" :data="[goodSpending, badSpending]" />
-        <div class="d-flex justify-content-between w-100 mb-2">
-            <BaseTypography size="md" weight="bold"> 가치 소비 </BaseTypography>
+        <BasePieChart :labels="SPEND_TYPES" :data="[goodSpending, badSpending]" />
+        <div
+            v-for="(spendType, index) in SPEND_TYPES"
+            class="d-flex justify-content-between w-100 mb-2"
+        >
+            <BaseTypography size="md" weight="bold"> {{ spendType }}</BaseTypography>
             <BaseTypography size="md" weight="bold" color="blue">
-                {{ goodSpending.toLocaleString() }}원
-            </BaseTypography>
-        </div>
-        <div class="d-flex justify-content-between w-100 mb-2">
-            <BaseTypography size="md" weight="bold"> 낭비 소비 </BaseTypography>
-            <BaseTypography size="md" weight="bold" color="red">
-                {{ badSpending.toLocaleString() }}원
+                {{ spendings[index].toLocaleString() }}원
             </BaseTypography>
         </div>
     </BaseCard>
@@ -23,6 +20,7 @@
 import BasePieChart from '@/components/chart/BasePieChart.vue'
 import BaseCard from '@/components/common/Card/BaseCard.vue'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
+import { SPEND_TYPES } from '@/common/constants'
 
 const props = defineProps({
     goodSpending: {
@@ -31,5 +29,9 @@ const props = defineProps({
     badSpending: {
         type: Number,
     },
+})
+
+const spendings = computed(() => {
+    return [props.goodSpending, props.badSpending]
 })
 </script>
