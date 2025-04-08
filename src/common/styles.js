@@ -14,3 +14,12 @@ export const COLORS = [
     'blue',
     'lightblue',
 ]
+export const PIECHART_COLORS = [
+    '#3E6AA6',
+    '#E87C33',
+    '#F2C84B',
+    '#69B3A2',
+    '#A344A3',
+    '#DC5B78',
+    '#4D4D4D',
+]
