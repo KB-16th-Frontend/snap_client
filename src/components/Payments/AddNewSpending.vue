@@ -1,15 +1,13 @@
 <template>
-    <section class="w-100">
+    <section class="w-100 mt-4">
         <BaseTypography tag="h2" color="primary" size="lg" weight="bold" class="text-start w-100">
             새로운 지출이 생겼나요?
         </BaseTypography>
 
         <BaseCard title="수입 및 지출 추가" class="mt-3">
             <BaseTypography color="black" size="medium" weight="bold" class="mt-3">
-                새로운 수입 및 지출이 생겼나요?</BaseTypography
-            >
-            <BaseTypography color="black" size="medium" weight="bold" class="mt-2"
-                >스냅과 함께 하루를 기록해보세요!</BaseTypography
+                새로운 수입 및 지출이 생겼나요?<br />스냅과 함께 하루를
+                기록해보세요!</BaseTypography
             >
             <router-link class="btn btn-primary mt-3" to="/">
                 <BaseTypography color="white" size="medium" weight="bold"
