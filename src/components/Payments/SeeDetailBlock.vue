@@ -11,18 +11,16 @@
         </BaseTypography>
         <BaseCard title="소비 기록 상세" class="mt-3" toName="">
             <div class="d-flex mt-3">
-                <BaseTypography size="lg" weight="bold" class="me-1">총 수입 : </BaseTypography>
-                <BaseTypography size="lg" weight="bold" color="red">{{
-                    props.income.toLocaleString()
-                }}</BaseTypography>
-                <BaseTypography size="lg" weight="bold">원</BaseTypography>
+                <BaseTypography size="lg" weight="bold" class="me-1"
+                    >총 수입 : <span class="text-red">{{ props.income.toLocaleString() }}</span
+                    >원</BaseTypography
+                >
             </div>
             <div class="d-flex">
-                <BaseTypography size="lg" weight="bold" class="me-1">총 지출 : </BaseTypography>
-                <BaseTypography size="lg" weight="bold" color="blue">{{
-                    props.spending.toLocaleString()
-                }}</BaseTypography>
-                <BaseTypography size="lg" weight="bold">원</BaseTypography>
+                <BaseTypography size="lg" weight="bold" class="me-1"
+                    >총 지출 : <span class="text-blue">{{ props.spending.toLocaleString() }}</span
+                    >원</BaseTypography
+                >
             </div>
         </BaseCard>
     </section>
