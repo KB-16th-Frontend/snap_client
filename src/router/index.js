@@ -22,7 +22,7 @@ const router = createRouter({
         {
             path: '/payments/detail',
             name: 'paymentsDetail',
-            component: () => import('../pages/PaymentsDetailPage.vue'),
+            component: () => import('../pages/payments/PaymentsDetailPage.vue'),
         },
         {
             path: '/payments/add',

@@ -1,6 +1,6 @@
 <style scoped></style>
 <template>
-    <BaseLayout class="pb-5">
+    <DetailLayout class="pb-5" :onBack="onBack">
         <TotalBlock :year="year" :month="month" :income="income" :spending="spending"></TotalBlock>
         <PaymentsOfDay
             v-for="item in data"
@@ -8,14 +8,23 @@
             :day="item.day"
             :paymentList="item.items"
         ></PaymentsOfDay>
-        <MoreButton></MoreButton>
-    </BaseLayout>
+        <div class="d-grid p-3 pb-5">
+            <button type="button" class="btn btn-primary btn-block">더보기</button>
+        </div>
+    </DetailLayout>
 </template>
 <script setup>
-import BaseLayout from '@/components/layouts/BaseLayout.vue'
 import TotalBlock from '@/components/paymentsDetail/TotalBlock.vue'
 import PaymentsOfDay from '@/components/paymentsDetail/PaymentsOfDay.vue'
-import MoreButton from '@/components/paymentsDetail/MoreButton.vue'
+import DetailLayout from '@/components/layouts/DetailLayout.vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const onBack = () => {
+    router.back()
+}
+
+// FIXME: DEV에서만 데이터 사용 후 삭제
 const year = 2025
 const month = 4
 const income = 1000000
