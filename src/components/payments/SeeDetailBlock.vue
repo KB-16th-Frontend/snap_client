@@ -9,7 +9,7 @@
         >
             소비 기록 상세 보기
         </BaseTypography>
-        <BaseCard title="소비 기록 상세" class="mt-3" toName="paymentsDetail">
+        <BaseCard title="소비 기록 상세" class="mt-3" toName="payments-detail">
             <div class="d-flex mt-3">
                 <BaseTypography size="lg" weight="bold" class="me-1"
                     >총 수입 : <span class="text-red">{{ props.income.toLocaleString() }}</span

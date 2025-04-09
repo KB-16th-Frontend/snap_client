@@ -14,8 +14,8 @@
     </DetailLayout>
 </template>
 <script setup>
-import TotalBlock from '@/components/paymentsDetail/TotalBlock.vue'
-import PaymentsOfDay from '@/components/paymentsDetail/PaymentsOfDay.vue'
+import TotalBlock from '@/components/payments/detail/TotalBlock.vue'
+import PaymentsOfDay from '@/components/payments/detail/PaymentsOfDay.vue'
 import DetailLayout from '@/components/layouts/DetailLayout.vue'
 import { useRouter } from 'vue-router'
 

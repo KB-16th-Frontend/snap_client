@@ -23,7 +23,7 @@
 
 <script setup>
 import { onMounted, ref } from 'vue'
-import BaseTypography from '../common/Typography/BaseTypography.vue'
+import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
 import { getIncomeCategoryAPI, getSpendingCategoryAPI } from '@/api/category'
 
 const categories = ref([])

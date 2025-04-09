@@ -38,8 +38,8 @@
     </li>
 </template>
 <script setup>
-import BaseTypography from '../Typography/BaseTypography.vue'
-import Emoji from './Emoji.vue'
+import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
+import Emoji from './EmojiBlock.vue'
 import { computed, defineProps } from 'vue'
 const props = defineProps({
     title: {

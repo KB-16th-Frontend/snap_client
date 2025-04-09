@@ -15,8 +15,8 @@
                 원
             </BaseTypography>
             <div class="row">
-                <div class="col-9"></div>
-                <div class="col-3">
+                <div class="col-6 col-sm-9"></div>
+                <div class="col-6 col-sm-3">
                     <select class="form-select" v-model="selectedOption">
                         <option value="total">전체</option>
                         <option value="spending">지출</option>
@@ -28,7 +28,7 @@
     </section>
 </template>
 <script setup>
-import BaseTypography from '../common/Typography/BaseTypography.vue'
+import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
 import { ref, defineProps } from 'vue'
 const props = defineProps({
     year: {

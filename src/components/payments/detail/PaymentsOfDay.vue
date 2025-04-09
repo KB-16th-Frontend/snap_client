@@ -23,9 +23,9 @@
     </div>
 </template>
 <script setup>
-import BaseCard from '../common/Card/BaseCard.vue'
-import BaseTypography from '../common/Typography/BaseTypography.vue'
-import PaymentItem from '../common/PaymentItem/PaymentItem.vue'
+import BaseCard from '@/components/common/Card/BaseCard.vue'
+import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
+import PaymentItem from '@/components/payments/item/PaymentItem.vue'
 import { defineProps } from 'vue'
 const props = defineProps({
     day: {

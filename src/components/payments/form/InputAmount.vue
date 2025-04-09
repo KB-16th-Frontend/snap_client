@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import BaseTypography from '../common/Typography/BaseTypography.vue'
+import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
 
 defineProps({
     transactionType: {
