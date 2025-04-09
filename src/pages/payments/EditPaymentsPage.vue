@@ -43,19 +43,20 @@ import { useRouter } from 'vue-router'
 // TODO: useRoute를 사용하여 paymentId를 가져오고, 해당 id에 맞는 결제 정보를 가져와야 함
 // import { useRoute } from 'vue-router'
 
-import DetailLayout from '@/components/layouts/DetailLayout.vue'
-import SelectIncomeSpending from '@/components/payments/SelectIncomeSpending.vue'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
-import InputTitle from '@/components/payments/InputTitle.vue'
-import InputAmount from '@/components/payments/InputAmount.vue'
-import InputDate from '@/components/payments/InputDate.vue'
-import SelectCategory from '@/components/payments/SelectCategory.vue'
-import InputDescription from '@/components/payments/InputDescription.vue'
-import SummaryAddedData from '@/components/payments/SummaryAddedData.vue'
+import DetailLayout from '@/components/layouts/DetailLayout.vue'
+import SelectIncomeSpending from '@/components/payments/form/SelectIncomeSpending.vue'
+import InputTitle from '@/components/payments/form/InputTitle.vue'
+import InputAmount from '@/components/payments/form/InputAmount.vue'
+import InputDate from '@/components/payments/form/InputDate.vue'
+import SelectCategory from '@/components/payments/form/SelectCategory.vue'
+import InputDescription from '@/components/payments/form/InputDescription.vue'
+import SummaryAddedData from '@/components/payments/form/SummaryAddedData.vue'
+import SelectIsValuableSpending from '@/components/payments/form/SelectIsValuableSpending.vue'
+
 import { useAddPaymentsForm } from '@/hooks/forms/useAddPaymentsForm'
 import { useFunnel } from '@/hooks/useFunnel'
 import { useValidation } from '@/hooks/useValidation'
-import SelectIsValuableSpending from '@/components/payments/SelectIsValuableSpending.vue'
 
 const STEPS = [
     '수입/지출 선택',

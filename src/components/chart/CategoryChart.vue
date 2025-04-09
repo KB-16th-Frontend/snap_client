@@ -43,7 +43,7 @@
 import BaseCard from '@/components/common/Card/BaseCard.vue'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
 import BasePieChart from '@/components/chart/BasePieChart.vue'
-import Emoji from '@/components/common/PaymentItem/Emoji.vue'
+import Emoji from '@/components/payments/item/EmojiBlock.vue'
 
 const props = defineProps({
     categorySpendings: {

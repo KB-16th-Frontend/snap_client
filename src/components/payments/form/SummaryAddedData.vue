@@ -37,8 +37,8 @@
 </template>
 
 <script setup>
-import PaymentItem from '../common/PaymentItem/PaymentItem.vue'
-import BaseTypography from '../common/Typography/BaseTypography.vue'
+import PaymentItem from '@/components/payments/item/PaymentItem.vue'
+import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
 
 defineProps({
     transactionType: {

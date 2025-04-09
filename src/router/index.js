@@ -21,7 +21,7 @@ const router = createRouter({
         },
         {
             path: '/payments/detail',
-            name: 'paymentsDetail',
+            name: 'payments-detail',
             component: () => import('../pages/payments/PaymentsDetailPage.vue'),
         },
         {
