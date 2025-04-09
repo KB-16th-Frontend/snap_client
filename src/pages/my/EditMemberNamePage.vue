@@ -1,23 +1,4 @@
-<style scoped>
-.form-container {
-    padding: 2rem 1rem 6rem;
-}
-/* 앞으로 가는 애니메이션 (오른쪽 -> 왼쪽) */
-.slide-left-enter-active,
-.slide-left-leave-active {
-    transition: all 0.3s ease;
-    position: absolute;
-    width: 100%;
-}
-.slide-left-enter-from {
-    transform: translateX(100%);
-    opacity: 0;
-}
-.slide-left-leave-to {
-    transform: translateX(-100%);
-    opacity: 0;
-}
-</style>
+<style scoped></style>
 
 <template>
     <DetailLayout :onBack="onClickBack">
