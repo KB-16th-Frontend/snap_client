@@ -10,12 +10,28 @@
                 >{{ totalSpending.toLocaleString() }}원</BaseTypography
             >
         </section>
-        <section class="px-3 pb-4">
-            <SpendTypeChart
-                :goodSpending="goodSpending"
-                :badSpending="badSpending"
-            ></SpendTypeChart>
-            <CategoryChart :categorySpendings="categorySpendings"></CategoryChart>
+        <section class="px-3 py-4">
+            <div v-if="totalSpending === 0">
+                <BaseCard class="mt-4">
+                    <BaseTypography
+                        size="lg"
+                        weight="bold"
+                        class="d-flex justify-content-center mx-3 mt-4"
+                        >아직 입력한 지출이 없어요!</BaseTypography
+                    >
+                    <BaseTypography size="2xl" class="text-center py-3">😢</BaseTypography>
+                    <router-link class="btn btn-primary mt-3 fw-bold" to="/payments">
+                        수입 및 지출 추가하기
+                    </router-link>
+                </BaseCard>
+            </div>
+            <div v-else>
+                <SpendTypeChart
+                    :goodSpending="goodSpending"
+                    :badSpending="badSpending"
+                ></SpendTypeChart>
+                <CategoryChart :categorySpendings="categorySpendings"></CategoryChart>
+            </div>
         </section>
     </DetailLayout>
 </template>
@@ -26,6 +42,7 @@ import { useRoute } from 'vue-router'
 
 import DetailLayout from '@/components/layouts/DetailLayout.vue'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
+import BaseCard from '@/components/common/Card/BaseCard.vue'
 import SpendTypeChart from '@/components/chart/SpendTypeChart.vue'
 import CategoryChart from '@/components/chart/CategoryChart.vue'
 import { fetchStatistics } from '@/api/payments'
