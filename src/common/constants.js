@@ -34,7 +34,7 @@ export const SPEND_TYPES = [
 ]
 
 export const MY_PAGE_MENUS = [
-    { title: '내 정보', elements: [{ name: '이름 설정', path: '' }] },
+    { title: '내 정보', elements: [{ name: '이름 설정', path: '/mypage/edit/name' }] },
     { title: '시스템 설정', elements: [{ name: '테마 변경', path: '' }] },
     {
         title: '기타',
