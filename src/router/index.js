@@ -20,6 +20,11 @@ const router = createRouter({
             component: () => import('../pages/payments/PaymentsPage.vue'),
         },
         {
+            path: '/payments/detail',
+            name: 'paymentsDetail',
+            component: () => import('../pages/PaymentsDetailPage.vue'),
+        },
+        {
             path: '/payments/add',
             name: 'add-payment',
             component: () => import('../pages/payments/EditPaymentsPage.vue'),
