@@ -1,8 +1,4 @@
-<style scoped>
-.link-item {
-    text-decoration: none;
-}
-</style>
+<style scoped></style>
 <template>
     <div class="p-3">
         <BaseTypography size="lg" weight="bold" color="primary">{{ day }}일</BaseTypography>
