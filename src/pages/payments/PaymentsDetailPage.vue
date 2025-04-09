@@ -7,10 +7,18 @@
             :key="item.items.id"
             :day="item.day"
             :paymentList="item.items"
+            @openModal="handleOpenModal"
         ></PaymentsOfDay>
         <div class="d-grid p-3 pb-5">
             <button type="button" class="btn btn-primary btn-block">더보기</button>
         </div>
+        <MoreButton></MoreButton>
+        <PaymentDetailModal
+            v-if="isOpen"
+            :isOpen="isOpen"
+            :item="selectedPayment"
+            @close="isOpen = false"
+        />
     </DetailLayout>
 </template>
 <script setup>
@@ -119,4 +127,17 @@ const data = [
         ],
     },
 ]
+// --
+import { ref } from 'vue'
+import PaymentDetailModal from '@/components/common/Modal/PaymentDetailModal.vue'
+const isOpen = ref(false)
+const selectedPayment = ref({})
+
+const handleOpenModal = (item) => {
+    selectedPayment.value = item
+    selectedPayment.value.id = item.id
+    console.log(selectedPayment)
+    isOpen.value = true
+    console.log(isOpen.value)
+}
 </script>
