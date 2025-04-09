@@ -23,10 +23,9 @@ const props = defineProps({
 })
 
 const pieCanvas = ref(null)
-let chartInstance = null
 
 const renderChart = () => {
-    chartInstance = new Chart(pieCanvas.value, {
+    new Chart(pieCanvas.value, {
         type: 'pie',
         data: {
             labels: props.labels.map((lable) => lable.title),
