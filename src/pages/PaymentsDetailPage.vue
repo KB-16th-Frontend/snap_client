@@ -13,9 +13,9 @@
 </template>
 <script setup>
 import BaseLayout from '@/components/layouts/BaseLayout.vue'
-import TotalBlock from '@/components/PaymentsDetail/TotalBlock.vue'
-import PaymentsOfDay from '@/components/PaymentsDetail/PaymentsOfDay.vue'
-import MoreButton from '@/components/PaymentsDetail/MoreButton.vue'
+import TotalBlock from '@/components/paymentsDetail/TotalBlock.vue'
+import PaymentsOfDay from '@/components/paymentsDetail/PaymentsOfDay.vue'
+import MoreButton from '@/components/paymentsDetail/MoreButton.vue'
 const year = 2025
 const month = 4
 const income = 1000000
