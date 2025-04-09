@@ -7,8 +7,15 @@
             :key="item.items.id"
             :day="item.day"
             :paymentList="item.items"
+            @openModal="handleOpenModal"
         ></PaymentsOfDay>
         <MoreButton></MoreButton>
+        <PaymentDetailModal
+            v-if="isOpen"
+            :isOpen="isOpen"
+            :item = "selectedPayment"
+            @close="isOpen = false"
+        />
     </BaseLayout>
 </template>
 <script setup>
@@ -110,4 +117,17 @@ const data = [
         ],
     },
 ]
+// --
+import { ref } from 'vue'
+import PaymentDetailModal from '@/components/common/Modal/PaymentDetailModal.vue'
+const isOpen = ref(false)
+const selectedPayment = ref({})
+
+const handleOpenModal = (item) => {
+    selectedPayment.value = item
+    selectedPayment.value.id = item.id
+    console.log(selectedPayment)
+    isOpen.value = true
+    console.log(isOpen.value)
+}
 </script>

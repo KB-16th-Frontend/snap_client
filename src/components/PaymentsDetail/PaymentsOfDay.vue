@@ -9,6 +9,7 @@
                     class="link-item"
                     v-for="item in props.paymentList"
                     :key="item.id"
+                    @click="() => emit('openModal', item)"
                 >
                     <PaymentItem
                         :title="item.title"
@@ -36,4 +37,6 @@ const props = defineProps({
     },
 })
 console.log(props.paymentList)
+
+const emit = defineEmits(['openModal'])
 </script>
