@@ -5,7 +5,7 @@ export const sum = (a, b) => {
 }
 
 export const getRandomColor = () => {
-    const randomNumber = Math.floor(Math.random() * 7 + 1)
+    const randomNumber = Math.floor(Math.random() * 8)
 
     const colors = [
         '#FBC121',
@@ -69,4 +69,27 @@ export const numberToKorean = (num) => {
     })
 
     return result.trim() + ' 원'
+}
+
+export const getRandomComment = (valueChangeRate) => {
+    const randomNumber = Math.floor(Math.random() * 4)
+    const posComment = [
+        '역시 쓸 땐 제대로 쓰시는군요 🙌',
+        '오늘 소비, 100점! 👏',
+        '이건 소비가 아니라 당신 위한 투자 🔥',
+        '이 정도면 소비 천재신데요? 절약왕 인정~',
+    ]
+    const negComment = [
+        '오늘은 좀 과했네요... 내일은 아껴봅시다!',
+        '한 번쯤은 그럴 수도 있지만 자주 그러면 파산이예요..',
+        '이런 소비가 자주 쌓이면... 김스냅님 통장이 텅장? 🙈',
+        '지금 당신에게 필요한 건 ‘결제’가 아니라 ‘결단’!',
+    ]
+    if (valueChangeRate > 0) {
+        return posComment[randomNumber]
+    } else if (valueChangeRate < 0) {
+        return negComment[randomNumber]
+    } else {
+        return '등락율의 변화가 없어요.'
+    }
 }
