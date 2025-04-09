@@ -74,10 +74,10 @@ const totalSpending = ref(100000)
 const goodSpending = ref(80000)
 const badSpending = ref(20000)
 const categorySpendings = ref([
-    { title: '식비', data: 30000 },
-    { title: '교통비', data: 20000 },
-    { title: '문화생활', data: 10000 },
-    { title: '의류', data: 5000 },
-    { title: '기타', data: 2000 },
+    { title: '식비', data: 30000, emoji: '🍽' },
+    { title: '교통', data: 20000, emoji: '🚗' },
+    { title: '취미/여가', data: 10000, emoji: '🎟' },
+    { title: '쇼핑', data: 5000, emoji: '🛍' },
+    { title: '기타', data: 2000, emoji: '#️⃣' },
 ])
 </script>
