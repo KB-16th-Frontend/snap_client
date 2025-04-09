@@ -5,7 +5,7 @@
         </BaseTypography>
 
         <BaseCard title="수입 및 지출 추가" class="mt-3">
-            <BaseTypography color="black" size="medium" weight="bold" class="mt-3">
+            <BaseTypography color="black" size="md" weight="bold" class="mt-3">
                 새로운 수입 및 지출이 생겼나요?<br />스냅과 함께 하루를
                 기록해보세요!</BaseTypography
             >
