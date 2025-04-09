@@ -13,10 +13,10 @@
 
 <script setup>
 import BaseLayout from '@/components/layouts/BaseLayout.vue'
-import ThisMonthSpending from '@/components/Payments/ThisMonthSpending.vue'
-import SeeDetailBlock from '@/components/Payments/SeeDetailBlock.vue'
-import SpendingReport from '@/components/Payments/SpendingReport.vue'
-import AddNewSpending from '@/components/Payments/AddNewSpending.vue'
+import ThisMonthSpending from '@/components/payments/ThisMonthSpending.vue'
+import SeeDetailBlock from '@/components/payments/SeeDetailBlock.vue'
+import SpendingReport from '@/components/payments/SpendingReport.vue'
+import AddNewSpending from '@/components/payments/AddNewSpending.vue'
 import { ref } from 'vue'
 const income = ref(234567)
 const spending = ref(123456)
