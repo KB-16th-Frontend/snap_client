@@ -63,3 +63,38 @@ body {
         min-height: -webkit-fill-available;
     }
 }
+
+.form-container {
+    padding: 2rem 1rem 6rem;
+}
+/* 앞으로 가는 애니메이션 (오른쪽 -> 왼쪽) */
+.slide-left-enter-active,
+.slide-left-leave-active {
+    transition: all 0.3s ease;
+    position: absolute;
+    width: 100%;
+}
+.slide-left-enter-from {
+    transform: translateX(100%);
+    opacity: 0;
+}
+.slide-left-leave-to {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+/* 뒤로 가는 애니메이션 (왼쪽 -> 오른쪽) */
+.slide-right-enter-active,
+.slide-right-leave-active {
+    transition: all 0.3s ease;
+    position: absolute;
+    width: 100%;
+}
+.slide-right-enter-from {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+.slide-right-leave-to {
+    transform: translateX(100%);
+    opacity: 0;
+}
