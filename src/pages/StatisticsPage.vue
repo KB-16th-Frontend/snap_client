@@ -1,7 +1,7 @@
 <style scoped></style>
 
 <template>
-    <DetailLayout>
+    <DetailLayout :onBack="onClickBack">
         <section class="w-100 pb-2 bg-light-blue">
             <BaseTypography size="lg" weight="bold" class="w-100 text-start px-3 pt-5 pb-3"
                 >{{ month }}월 지출</BaseTypography
@@ -38,6 +38,7 @@
 
 <script setup>
 import { onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { useRoute } from 'vue-router'
 
 import DetailLayout from '@/components/layouts/DetailLayout.vue'
@@ -47,6 +48,7 @@ import SpendTypeChart from '@/components/chart/SpendTypeChart.vue'
 import CategoryChart from '@/components/chart/CategoryChart.vue'
 import { fetchStatistics } from '@/api/payments'
 
+const router = useRouter()
 const route = useRoute()
 const yearMonth = ref(route.query.yearMonth)
 const memberId = ref(Number(route.query.memberId))
@@ -80,4 +82,8 @@ const categorySpendings = ref([
     { title: '쇼핑', data: 5000, emoji: '🛍' },
     { title: '기타', data: 2000, emoji: '#️⃣' },
 ])
+
+const onClickBack = () => {
+    router.back()
+}
 </script>
