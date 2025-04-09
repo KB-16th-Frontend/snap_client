@@ -50,6 +50,11 @@ const router = createRouter({
             component: () => import('../pages/MyPage.vue'),
         },
         {
+            path: '/mypage/add/:memberId',
+            name: 'add-mypage',
+            component: () => import('../pages/my/EditMemberNamePage.vue'),
+        },
+        {
             path: '/:NotFound(.*)',
             component: () => import(`../pages/NotFoundPage.vue`),
         },
