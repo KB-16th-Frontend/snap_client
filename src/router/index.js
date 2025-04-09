@@ -50,7 +50,7 @@ const router = createRouter({
             component: () => import('../pages/MyPage.vue'),
         },
         {
-            path: '/mypage/add/:memberId',
+            path: '/mypage/edit/name',
             name: 'add-mypage',
             component: () => import('../pages/my/EditMemberNamePage.vue'),
         },
