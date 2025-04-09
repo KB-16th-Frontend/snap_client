@@ -30,6 +30,6 @@ const router = useRouter()
 const memberId = 1
 
 const goToAddPage = () => {
-    router.push(`/mypage/add/${memberId}`)
+    router.push(`/mypage/edit/name`)
 }
 </script>
