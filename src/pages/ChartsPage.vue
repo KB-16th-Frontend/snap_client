@@ -21,8 +21,8 @@
 import BaseLayout from '@/components/layouts/BaseLayout.vue'
 import ValueBlock from '@/components/chart/ValueBlock.vue'
 import FluctuationBlock from '@/components/chart/FluctuationBlock.vue'
-import AddNewSpending from '@/components/payments/AddNewSpending.vue'
+import AddNewSpending from '@/components/payment/AddNewSpending.vue'
 const name = '김스냅'
 const valueScore = 1234567
-const valueChangeRate = 1.24
+const valueChangeRate = -1.24
 </script>
