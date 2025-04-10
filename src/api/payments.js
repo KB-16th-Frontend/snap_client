@@ -1,12 +1,15 @@
 import { instance } from './common'
 
-export const fetchStatistics = async (request) => {
+export const fetchSpendingTransaction = async (request) => {
     try {
         const response = await instance.get('/transaction', {
-            ...request,
+            params: {
+                transactionType: 'spending',
+                memberId: request.memberId,
+            },
         })
         return response.data
     } catch (e) {
-        console.log('getStatistics 요청 실패', e)
+        console.error('fetchSpendingTransaction 요청 실패', e)
     }
 }
