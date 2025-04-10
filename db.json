@@ -493,6 +493,36 @@
       "valueScore": 56600,
       "valueChangeRate": -2.59,
       "memberId": 1
+    },
+    {
+      "id": "32",
+      "date": "2025-04-09",
+      "yesterdayValue": 45100,
+      "totalGoodSpending": 94000,
+      "totalBadSpending": 6600,
+      "valueScore": 53900,
+      "valueChangeRate": 87.45,
+      "memberId": 1
+    },
+    {
+      "id": "33",
+      "date": "2025-04-10",
+      "yesterdayValue": 53900,
+      "totalGoodSpending": 42500,
+      "totalBadSpending": 12200,
+      "valueScore": 56900,
+      "valueChangeRate": 30.28,
+      "memberId": 1
+    },
+    {
+      "id": "34",
+      "date": "2025-04-11",
+      "yesterdayValue": 56900,
+      "totalGoodSpending": 24500,
+      "totalBadSpending": 27100,
+      "valueScore": 56600,
+      "valueChangeRate": -2.59,
+      "memberId": 1
     }
   ],
   "member": [
