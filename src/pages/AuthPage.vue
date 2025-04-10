@@ -55,11 +55,10 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
 import { getUserInfo } from '@/api/auth'
-import { getUserLocalStorage } from '@/utils/token'
 
 const userId = ref('')
 const password = ref('')
@@ -76,11 +75,4 @@ const onSubmit = async () => {
     console.log('User ID:', userId.value)
     console.log(data)
 }
-
-onMounted(() => {
-    if (getUserLocalStorage !== null)
-        router.push({
-            name: 'home',
-        })
-})
 </script>
