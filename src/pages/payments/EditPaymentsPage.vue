@@ -38,10 +38,10 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 // TODO: useRoute를 사용하여 paymentId를 가져오고, 해당 id에 맞는 결제 정보를 가져와야 함
-// import { useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
 
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
 import DetailLayout from '@/components/layouts/DetailLayout.vue'
@@ -70,6 +70,8 @@ const STEPS = [
 
 const EXTRA_STEPS = ['가치/낭비 소비 선택']
 
+const route = useRoute()
+const paymentId = route.params.id
 const router = useRouter()
 const isSubmitted = ref(false)
 
@@ -203,4 +205,9 @@ const onClickBack = () => {
 
     prevStep()
 }
+
+// onMounted(() => {
+//     if (paymentId) {
+//     }
+// })
 </script>
