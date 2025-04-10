@@ -15,19 +15,28 @@
         <BaseTypography color="primary" weight="bold" size="lg" class="p-3"
             >차트 상세 보기</BaseTypography
         >
-        <LineChart :selectedRange="range" :key="range"></LineChart>
+        <LineChart :selectedRange="range" :key="range" :chartData="chartData"></LineChart>
     </DetailLayout>
 </template>
 <script setup>
 import DetailLayout from '@/components/layouts/DetailLayout.vue'
 import LineChart from '@/components/chart/LineChart.vue'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { getValueIndexAll } from '@/api/valueIndex'
+import { useAuthGuard } from '@/hooks/useAuthGuard'
 
 const router = useRouter()
 const range = ref('week')
+const chartData = ref(null)
+
 const onBack = () => {
     router.back()
 }
+
+onMounted(async () => {
+    await useAuthGuard()
+    chartData.value = await getValueIndexAll()
+})
 </script>

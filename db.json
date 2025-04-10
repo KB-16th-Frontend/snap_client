@@ -543,7 +543,87 @@
       "memberId": 1
     },
     {
+      "id": "24",
+      "date": "2025-04-01",
+      "yesterdayValue": 13400,
+      "totalGoodSpending": 94100,
+      "totalBadSpending": 42100,
+      "valueScore": 18600,
+      "valueChangeRate": 52.0,
+      "memberId": 1
+    },
+    {
+      "id": "25",
+      "date": "2025-04-02",
+      "yesterdayValue": 18600,
+      "totalGoodSpending": 49300,
+      "totalBadSpending": 71300,
+      "valueScore": 16400,
+      "valueChangeRate": -21.99,
+      "memberId": 1
+    },
+    {
+      "id": "26",
+      "date": "2025-04-03",
+      "yesterdayValue": 16400,
+      "totalGoodSpending": 192100,
+      "totalBadSpending": 53300,
+      "valueScore": 26400,
+      "valueChangeRate": 100.0,
+      "memberId": 1
+    },
+    {
       "id": "32",
+      "date": "2025-04-04",
+      "yesterdayValue": 26400,
+      "totalGoodSpending": 110600,
+      "totalBadSpending": 17800,
+      "valueScore": 35700,
+      "valueChangeRate": 92.73,
+      "memberId": 1
+    },
+    {
+      "id": "33",
+      "date": "2025-04-05",
+      "yesterdayValue": 35700,
+      "totalGoodSpending": 186100,
+      "totalBadSpending": 92000,
+      "valueScore": 45100,
+      "valueChangeRate": 94.1,
+      "memberId": 1
+    },
+    {
+      "id": "34",
+      "date": "2025-04-06",
+      "yesterdayValue": 45100,
+      "totalGoodSpending": 94000,
+      "totalBadSpending": 6600,
+      "valueScore": 53900,
+      "valueChangeRate": 87.45,
+      "memberId": 1
+    },
+    {
+      "id": "35",
+      "date": "2025-04-07",
+      "yesterdayValue": 53900,
+      "totalGoodSpending": 42500,
+      "totalBadSpending": 12200,
+      "valueScore": 56900,
+      "valueChangeRate": 30.28,
+      "memberId": 1
+    },
+    {
+      "id": "36",
+      "date": "2025-04-08",
+      "yesterdayValue": 56900,
+      "totalGoodSpending": 24500,
+      "totalBadSpending": 27100,
+      "valueScore": 56600,
+      "valueChangeRate": -2.59,
+      "memberId": 1
+    },
+    {
+      "id": "37",
       "date": "2025-04-09",
       "yesterdayValue": 45100,
       "totalGoodSpending": 94000,
@@ -553,7 +633,7 @@
       "memberId": 1
     },
     {
-      "id": "33",
+      "id": "38",
       "date": "2025-04-10",
       "yesterdayValue": 53900,
       "totalGoodSpending": 42500,
@@ -563,7 +643,7 @@
       "memberId": 1
     },
     {
-      "id": "34",
+      "id": "39",
       "date": "2025-04-11",
       "yesterdayValue": 56900,
       "totalGoodSpending": 24500,

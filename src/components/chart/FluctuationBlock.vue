@@ -3,13 +3,19 @@
     <BaseCard class="mt-3">
         <BaseTypography size="md" color="gray" weight="bold">오늘의 등락율</BaseTypography>
         <BaseTypography class="pt-2" size="lg" :color="valueColor" weight="bold">
-            <i class="fa-solid fa-chart-line fs-lg"></i> {{ props.valueScore.toLocaleString() }}원
-            ({{ props.valueChangeRate > 0 ? '+' : '' }}{{ props.valueChangeRate }}%)</BaseTypography
+            <i class="fa-solid fa-chart-line fs-lg"></i>
+            {{ props.todayValueScore.toLocaleString() }}원 ({{
+                props.todayValueChangeRate > 0 ? '+' : ''
+            }}{{ props.todayValueChangeRate }}%)</BaseTypography
         >
         <BaseTypography class="pt-2" size="md" color="primary" weight="medium">{{
-            getRandomComment(props.valueChangeRate)
+            getRandomComment(props.todayValueChangeRate)
         }}</BaseTypography>
-        <LineChart class="mt-2" :valueChangeRate="valueChangeRate"></LineChart>
+        <LineChart
+            class="mt-2"
+            :todayValueChangeRate="todayValueChangeRate"
+            :chartData="chartData"
+        ></LineChart>
         <router-link class="btn btn-primary mt-3 fw-bold" to="/charts/detail">
             차트 상세보기
         </router-link>
@@ -23,21 +29,26 @@ import { defineProps, computed } from 'vue'
 import { getRandomComment } from '@/utils/common'
 
 const props = defineProps({
-    valueScore: {
+    todayValueScore: {
         type: Number,
     },
-    valueChangeRate: {
+    todayValueChangeRate: {
         type: Number,
+    },
+    chartData: {
+        type: Array,
     },
 })
 
 const valueColor = computed(() => {
-    if (props.valueChangeRate > 0) {
+    if (props.todayValueChangeRate > 0) {
         return 'red'
-    } else if (props.valueChangeRate < 0) {
+    } else if (props.todayValueChangeRate < 0) {
         return 'blue'
     } else {
         return 'black'
     }
 })
+
+console.log('chartData', props.chartData)
 </script>

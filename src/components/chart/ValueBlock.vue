@@ -3,7 +3,7 @@
         <div class="d-flex justify-content-between">
             <BaseTypography size="lg" weight="bold" class="">
                 {{ props.name }}님의<br />오늘 소비 가치는<br />
-                <span :class="`text-${valueColor}`">{{ valueScore.toLocaleString() }}</span
+                <span :class="`text-${valueColor}`">{{ todayValueScore.toLocaleString() }}</span
                 >원 입니다.
             </BaseTypography>
             <BaseTypography size="2xl">💵</BaseTypography>
@@ -20,17 +20,17 @@ const props = defineProps({
     name: {
         type: String,
     },
-    valueScore: {
+    todayValueScore: {
         type: Number,
     },
-    valueChangeRate: {
+    todayValueChangeRate: {
         type: Number,
     },
 })
 const valueColor = computed(() => {
-    if (props.valueChangeRate > 0) {
+    if (props.todayValueChangeRate > 0) {
         return 'red'
-    } else if (props.valueChangeRate < 0) {
+    } else if (props.todayValueChangeRate < 0) {
         return 'blue'
     } else {
         return 'black'
