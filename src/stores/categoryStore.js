@@ -6,7 +6,7 @@ export const useCategoryStore = defineStore('category', {
     }),
 
     actions: {
-        async setCategories(data) {
+        setCategories(data) {
             this.categories = data
         },
     },
