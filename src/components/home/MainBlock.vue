@@ -25,7 +25,7 @@
                 >
             </div>
             <BaseTypography color="primary" size="md" class="mt-3">
-                어제의 가치는 {{ yesterdayData[0].valueScore.toLocaleString() }}원 이에요!
+                어제의 가치는 {{ yesterdayData.toLocaleString() }}원 이에요!
             </BaseTypography>
         </BaseCard>
     </section>
@@ -57,7 +57,7 @@ onMounted(async () => {
     // API 호출
     todaysData.value = await getValueIndex({ date: todayString })
     console.log('todaysData.value', todaysData.value)
-    yesterdayData.value = await getValueIndex({ date: yesterdayString })
+    yesterdayData.value = todaysData.value[0].yesterdayValue
     console.log('yesterdayData.value', yesterdayData.value)
 })
 </script>
