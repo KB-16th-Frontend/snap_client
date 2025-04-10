@@ -4,11 +4,14 @@
             <div class="modal-container" @click.stop>
                 <slot />
             </div>
+            <!-- <BaseCard class="modal-container"> <slot></slot></BaseCard> -->
         </div>
     </Teleport>
 </template>
 
 <script setup>
+// import BaseCard from '../Card/BaseCard.vue'
+
 defineProps({
     isOpen: Boolean,
 })
@@ -37,8 +40,9 @@ const onBackdropClick = (e) => {
     left: 50%;
     transform: translate(-50%, -50%);
     background: white;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 1rem;
+    padding: 1.5rem;
     box-sizing: border-box;
+    opacity: 100%;
 }
 </style>

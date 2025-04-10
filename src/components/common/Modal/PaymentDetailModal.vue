@@ -22,10 +22,10 @@
         <BaseTypography size="md" class="text-start w-100 my-3">
             <b>수입/지출 분류:</b> {{ item.transactionType === 'income' ? '수입' : '지출' }}
         </BaseTypography>
-          
-      <!-- <BaseTypography size="md" class="text-start w-100 my-3">
-        <b>상세 설명:</b> {{ item.description.length > 0 ? description : '없음' }}
-      </BaseTypography> -->
+
+        <BaseTypography size="md" class="text-start w-100 my-3">
+            <b>상세 설명:</b> {{ item.description.length > 0 ? item.description : '없음' }}
+        </BaseTypography>
 
         <div class="d-flex justify-content-between gap-2 mt-4">
             <button class="btn btn-success w-100" @click="goEdit">수정하기</button>
@@ -35,18 +35,22 @@
 </template>
 
 <script setup>
-import BaseModal from './BaseModal.vue'
-import BaseTypography from '../Typography/BaseTypography.vue'
-import PaymentItem from '../PaymentItem/PaymentItem.vue'
+import BaseModal from '@/components/common/Modal/BaseModal.vue'
+import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
+import PaymentItem from '@/components/payments/item/PaymentItem.vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
 const { item } = defineProps({
-  item: {
-    type: Object,
-    required: true
-  }
+    item: {
+        type: Object,
+        required: true,
+    },
+    isOpen:{
+        type:Boolean,
+        required:true
+    }
 })
 
 const goEdit = () => {
