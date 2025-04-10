@@ -186,7 +186,7 @@
   "valueIndex": [
     {
       "id": "1",
-      "date": "2025-04-01",
+      "date": "2025-04-09",
       "totalGoodSpending": 150000,
       "totalBadSpending": 70000,
       "valueScore": 58000,
@@ -195,7 +195,7 @@
     },
     {
       "id": "2",
-      "date": "2025-04-02",
+      "date": "2025-04-10",
       "totalGoodSpending": 12000,
       "totalBadSpending": 0,
       "valueScore": 59200,
