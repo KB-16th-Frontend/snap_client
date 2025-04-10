@@ -7,7 +7,7 @@ canvas {
     <canvas ref="chartCanvas"></canvas>
 </template>
 <script setup>
-import { onMounted, ref, computed, defineProps, watch } from 'vue'
+import { onMounted, ref, computed, defineProps } from 'vue'
 import { Chart, registerables } from 'chart.js'
 
 Chart.register(...registerables)
@@ -36,6 +36,36 @@ const borderColor = computed(() => {
 })
 
 const fullData = [
+    { date: '2025-03-01', value: 9800 },
+    { date: '2025-03-02', value: 10800 },
+    { date: '2025-03-03', value: 10500 },
+    { date: '2025-03-04', value: 11000 },
+    { date: '2025-03-05', value: 10000 },
+    { date: '2025-03-06', value: 9500 },
+    { date: '2025-03-07', value: 9800 },
+    { date: '2025-03-08', value: 10800 },
+    { date: '2025-03-09', value: 10100 },
+    { date: '2025-03-10', value: 10500 },
+    { date: '2025-03-11', value: 9800 },
+    { date: '2025-03-12', value: 10800 },
+    { date: '2025-03-13', value: 10500 },
+    { date: '2025-03-14', value: 11000 },
+    { date: '2025-03-15', value: 10000 },
+    { date: '2025-03-16', value: 9500 },
+    { date: '2025-03-17', value: 9800 },
+    { date: '2025-03-18', value: 10800 },
+    { date: '2025-03-19', value: 10100 },
+    { date: '2025-03-20', value: 10500 },
+    { date: '2025-03-21', value: 9800 },
+    { date: '2025-03-22', value: 10800 },
+    { date: '2025-03-23', value: 10500 },
+    { date: '2025-03-24', value: 11000 },
+    { date: '2025-03-25', value: 10000 },
+    { date: '2025-03-26', value: 9500 },
+    { date: '2025-03-27', value: 9800 },
+    { date: '2025-03-28', value: 10800 },
+    { date: '2025-03-29', value: 10100 },
+    { date: '2025-03-30', value: 10500 },
     { date: '2025-04-01', value: 9800 },
     { date: '2025-04-02', value: 10800 },
     { date: '2025-04-03', value: 10500 },
@@ -108,12 +138,4 @@ const renderChart = (filteredData) => {
 onMounted(() => {
     renderChart(filterDataByRange(props.selectedRange))
 })
-
-watch(
-    () => props.selectedRange,
-    (newRange) => {
-        const filtered = filterDataByRange(newRange)
-        renderChart(filtered)
-    },
-)
 </script>
