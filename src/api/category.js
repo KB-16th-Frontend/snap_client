@@ -1,4 +1,4 @@
-// import { instance } from './common'
+import { instance } from './common'
 
 export const getIncomeCategoryAPI = async () => {
     try {
@@ -43,6 +43,16 @@ export const getSpendingCategoryAPI = async () => {
                 { id: '16', transactionType: 'spending', name: '기타', emoji: '#️⃣' },
             ],
         }
+        return response.data
+    } catch (e) {
+        // 인터셉터에서 처리한 에러 외의 로깅 수행
+        console.log('getSampleList 요청 실패', e)
+    }
+}
+
+export const getCategoryDetailAPI = async (categoryId) => {
+    try {
+        const response = await instance.get(`/categories/${categoryId}`)
         return response.data
     } catch (e) {
         // 인터셉터에서 처리한 에러 외의 로깅 수행

@@ -50,18 +50,18 @@
             </Slide>
             <Slide>
                 <div
-                    class="w-100 bg-light-blue d-flex text-white px-3 justify-content-between align-items-center"
+                    class="w-100 bg-black d-flex text-white px-3 justify-content-between align-items-center"
                     style="height: 5rem"
                 >
                     <div>
-                        <BaseTypography size="md" weight="bold">
-                            돈 버는 방법이 궁금해?
+                        <BaseTypography size="md" weight="bold" color="white">
+                            만드느라 너무 힘들었어요ㅠ
                         </BaseTypography>
-                        <BaseTypography size="sm" weight="medium">
-                            스냅과 함께 돈 버는 방법을 알아보세요!
+                        <BaseTypography size="sm" weight="medium" color="white">
+                            스냅으로 돈 벌고 싶어요!
                         </BaseTypography>
                     </div>
-                    <BaseTypography size="2xl"> 💸 </BaseTypography>
+                    <BaseTypography size="2xl"> 😭 </BaseTypography>
                 </div>
             </Slide>
         </Carousel>
@@ -73,16 +73,12 @@
 
 <script setup>
 import 'vue3-carousel/carousel.css'
-import { ref } from 'vue'
+import { ref, onUnmounted } from 'vue'
 import { Carousel, Slide } from 'vue3-carousel'
 import BaseTypography from '../common/Typography/BaseTypography.vue'
 
 const carouselRef = ref()
 const currentSlide = ref(0)
-
-// 2초 간격으로 메시지를 보여줌
-setInterval(() => onNext(), 3000)
-
 const total = 2
 
 const onNext = () => {
@@ -92,6 +88,14 @@ const onNext = () => {
         carouselRef.value.next()
     }
 }
+
+// 인터벌 시작
+const intervalId = setInterval(() => onNext(), 3000)
+
+// 컴포넌트가 제거될 때 인터벌 정리
+onUnmounted(() => {
+    clearInterval(intervalId)
+})
 
 const config = {
     height: 80,
