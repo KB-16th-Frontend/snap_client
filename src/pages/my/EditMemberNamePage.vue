@@ -34,9 +34,8 @@
 </template>
 
 <script setup>
-import { reactive, ref, computed } from 'vue'
+import { reactive, ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-// import { useRoute } from 'vue-router'
 
 import DetailLayout from '@/components/layouts/DetailLayout.vue'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
@@ -44,6 +43,9 @@ import InputName from '@/components/my/InputName.vue'
 import SummaryAddedData from '@/components/my/SummaryAddedData.vue'
 import { useFunnel } from '@/hooks/useFunnel'
 import { useValidation } from '@/hooks/useValidation'
+import { patchMemberName } from '@/api/member'
+import useUserStore from '@/stores/auth'
+import { getUserInfo } from '@/api/auth'
 
 const STEPS = ['이름 설정', '추가 완료']
 
@@ -57,11 +59,15 @@ const state = reactive({
 
 const { currentStep, direction, nextStep, prevStep } = useFunnel(STEPS)
 const { isValidated, errorMessage, validate } = useValidation()
+const user = useUserStore()
 
 const transitionName = computed(() => {
     if (direction.value === 'forward') {
         return 'slide-left'
+    } else if (direction.value === 'backward') {
+        return 'slide-right'
     }
+    return ''
 })
 
 // 현재 스텝에 따라 보여줄 컴포넌트
@@ -103,7 +109,7 @@ const onClickBack = () => {
     prevStep()
 }
 
-const onClickNext = () => {
+const onClickNext = async () => {
     if (currentStep.value === STEPS[1]) {
         router.push({
             name: 'mypage',
@@ -112,6 +118,9 @@ const onClickNext = () => {
     }
     if (currentStep.value === STEPS[0]) {
         isSubmitted.value = true
+        await patchMemberName(user.userInfo.id, state.name)
+        const userInfo = await getUserInfo(user.userInfo.id)
+        user.setUserInfo(userInfo)
         nextStep()
         return
     }
@@ -120,4 +129,10 @@ const onClickNext = () => {
         nextStep()
     }
 }
+
+onMounted(() => {
+    if (user.isLoggedIn) {
+        state.name = user.userInfo.nickname
+    }
+})
 </script>

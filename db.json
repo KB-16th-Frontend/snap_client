@@ -239,7 +239,7 @@
       "totalGoodSpending": 0,
       "totalBadSpending": 0,
       "valueScore": 50000,
-      "valueChangeRate": 0.0,
+      "valueChangeRate": 0,
       "memberId": 1
     },
     {
@@ -269,7 +269,7 @@
       "totalGoodSpending": 28500,
       "totalBadSpending": 133100,
       "valueScore": 46900,
-      "valueChangeRate": -100.0,
+      "valueChangeRate": -100,
       "memberId": 1
     },
     {
@@ -359,7 +359,7 @@
       "totalGoodSpending": 148100,
       "totalBadSpending": 39400,
       "valueScore": 41600,
-      "valueChangeRate": 100.0,
+      "valueChangeRate": 100,
       "memberId": 1
     },
     {
@@ -419,7 +419,7 @@
       "totalGoodSpending": 13800,
       "totalBadSpending": 131700,
       "valueScore": 23900,
-      "valueChangeRate": -100.0,
+      "valueChangeRate": -100,
       "memberId": 1
     },
     {
@@ -469,7 +469,7 @@
       "totalGoodSpending": 94100,
       "totalBadSpending": 42100,
       "valueScore": 18600,
-      "valueChangeRate": 52.0,
+      "valueChangeRate": 52,
       "memberId": 1
     },
     {
@@ -489,7 +489,7 @@
       "totalGoodSpending": 192100,
       "totalBadSpending": 53300,
       "valueScore": 26400,
-      "valueChangeRate": 100.0,
+      "valueChangeRate": 100,
       "memberId": 1
     },
     {
@@ -656,7 +656,7 @@
   "member": [
     {
       "id": "1",
-      "nickname": "김스냅",
+      "nickname": "김스냅스냅",
       "password": "1234",
       "totalSpend": 235000,
       "presentValueScore": 58000
