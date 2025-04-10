@@ -1,21 +1,15 @@
-import { reactive } from 'vue'
+import { toRefs } from 'vue'
 import { numberToKorean } from '@/utils/common'
+import { useEditPaymentsStore } from '@/stores/payments' // store 경로 맞게 조정해줘
 
 export const useAddPaymentsForm = (validate) => {
-    const state = reactive({
-        transactionType: null,
-        title: '',
-        amount: 0,
-        date: '',
-        spendType: null,
-        categoryId: '',
-        description: '',
-    })
+    const store = useEditPaymentsStore()
+    const { transactionType, title, amount, date, spendType, categoryId, description } =
+        toRefs(store)
 
-    // 각 스텝에 따라 넘길 state change 함수 설정
-    const onClickTransactionType = (transactionType) => {
-        state.transactionType = transactionType
-        validate(state.transactionType, [
+    const onClickTransactionType = (type) => {
+        store.onClickTransactionType(type)
+        validate(transactionType.value, [
             (value) =>
                 value !== null
                     ? { isValid: true }
@@ -24,8 +18,8 @@ export const useAddPaymentsForm = (validate) => {
     }
 
     const onChangeTitle = (e) => {
-        state.title = e.target.value
-        validate(state.title, [
+        store.onChangeTitle(e)
+        validate(title.value, [
             (value) =>
                 value.length > 1
                     ? { isValid: true }
@@ -34,21 +28,18 @@ export const useAddPaymentsForm = (validate) => {
     }
 
     const onChangeAmount = (e) => {
-        state.amount = Number(e.target.value)
-        validate(state.amount, [
+        store.onChangeAmount(e)
+        validate(amount.value, [
             (value) =>
                 value > 0
-                    ? { isValid: true, guideMessage: numberToKorean(state.amount) }
-                    : {
-                          isValid: false,
-                          errorMessage: '0보다 큰 금액을 입력해 주세요!',
-                      },
+                    ? { isValid: true, guideMessage: numberToKorean(amount.value) }
+                    : { isValid: false, errorMessage: '0보다 큰 금액을 입력해 주세요!' },
         ])
     }
 
     const onChangeDate = (e) => {
-        state.date = e.target.value
-        validate(state.date, [
+        store.onChangeDate(e)
+        validate(date.value, [
             (value) =>
                 new Date(value) <= new Date()
                     ? { isValid: true }
@@ -56,10 +47,9 @@ export const useAddPaymentsForm = (validate) => {
         ])
     }
 
-    // 설명 입력 처리 (검증 포함)
     const onChangeDescription = (e) => {
-        state.description = e.target.value
-        validate(state.description, [
+        store.onChangeDescription(e)
+        validate(description.value, [
             (value) =>
                 value.length <= 20
                     ? { isValid: true }
@@ -70,10 +60,9 @@ export const useAddPaymentsForm = (validate) => {
         ])
     }
 
-    // 카테고리 선택 처리 (검증 포함)
     const onSelectCategory = (category) => {
-        state.categoryId = category
-        validate(state.categoryId, [
+        store.onClickCategory(category)
+        validate(categoryId.value, [
             (value) =>
                 value.length > 0
                     ? { isValid: true }
@@ -81,17 +70,17 @@ export const useAddPaymentsForm = (validate) => {
         ])
     }
 
-    const onSelectSpendType = (spendType) => {
-        state.spendType = spendType
-        validate(state.spendType, [
+    const onSelectSpendType = (type) => {
+        store.onClickSpendType(type)
+        validate(spendType.value, [
             (value) =>
                 value !== null
                     ? { isValid: true }
                     : { isValid: false, errorMessage: '가치/낭비 소비를 선택해 주세요!' },
         ])
     }
+
     return {
-        state,
         onClickTransactionType,
         onChangeTitle,
         onChangeAmount,

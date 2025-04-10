@@ -22,15 +22,34 @@
     </DetailLayout>
 </template>
 <script setup>
+import { useRouter } from 'vue-router'
+import { onMounted, ref } from 'vue'
+
 import TotalBlock from '@/components/payments/detail/TotalBlock.vue'
 import PaymentsOfDay from '@/components/payments/detail/PaymentsOfDay.vue'
 import DetailLayout from '@/components/layouts/DetailLayout.vue'
-import { useRouter } from 'vue-router'
+import PaymentDetailModal from '@/components/common/Modal/PaymentDetailModal.vue'
+import { useAuthGuard } from '@/hooks/useAuthGuard'
+
+const isOpen = ref(false)
+const selectedPayment = ref({})
+
+const handleOpenModal = (item) => {
+    selectedPayment.value = item
+    selectedPayment.value.id = item.id
+    console.log(selectedPayment)
+    isOpen.value = true
+    console.log(isOpen.value)
+}
 
 const router = useRouter()
 const onBack = () => {
     router.back()
 }
+
+onMounted(async () => {
+    await useAuthGuard()
+})
 
 // FIXME: DEV에서만 데이터 사용 후 삭제
 const year = 2025
@@ -127,22 +146,4 @@ const data = [
         ],
     },
 ]
-// --
-import { onMounted, ref } from 'vue'
-import PaymentDetailModal from '@/components/common/Modal/PaymentDetailModal.vue'
-import { useAuthGuard } from '@/hooks/useAuthGuard'
-const isOpen = ref(false)
-const selectedPayment = ref({})
-
-const handleOpenModal = (item) => {
-    selectedPayment.value = item
-    selectedPayment.value.id = item.id
-    console.log(selectedPayment)
-    isOpen.value = true
-    console.log(isOpen.value)
-}
-
-onMounted(async () => {
-    await useAuthGuard()
-})
 </script>

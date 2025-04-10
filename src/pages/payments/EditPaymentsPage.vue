@@ -39,9 +39,7 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
-// TODO: useRoute를 사용하여 paymentId를 가져오고, 해당 id에 맞는 결제 정보를 가져와야 함
-import { useRoute } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
 import DetailLayout from '@/components/layouts/DetailLayout.vue'
@@ -58,6 +56,9 @@ import { useAddPaymentsForm } from '@/hooks/forms/useAddPaymentsForm'
 import { useFunnel } from '@/hooks/useFunnel'
 import { useValidation } from '@/hooks/useValidation'
 import { useAuthGuard } from '@/hooks/useAuthGuard'
+import { useEditPaymentsStore } from '@/stores/payments'
+import { fetchPaymentDetail, patchPaymentDetail, postPaymentDetail } from '@/api/payments'
+import useUserStore from '@/stores/auth'
 
 const STEPS = [
     '수입/지출 선택',
@@ -77,10 +78,11 @@ const router = useRouter()
 const isSubmitted = ref(false)
 
 // 훅 사용
+const user = useUserStore()
 const { currentStep, direction, nextStep, prevStep, setStep } = useFunnel(STEPS)
+const state = useEditPaymentsStore()
 const { isValidated, errorMessage, guideMessage, validate } = useValidation()
 const {
-    state,
     onClickTransactionType,
     onChangeTitle,
     onChangeAmount,
@@ -129,6 +131,7 @@ const getStepProps = (step) => {
             guideMessage: guideMessage.value,
         }
     } else if (step === STEPS[3]) {
+        console.log(state.date)
         return {
             transactionType: state.transactionType,
             date: state.date,
@@ -139,7 +142,7 @@ const getStepProps = (step) => {
         return {
             transactionType: state.transactionType,
             date: state.date,
-            selectedCategoryId: state.categoryId,
+            selectedCategoryId: `${state.categoryId}`,
             onClick: onSelectCategory,
             errorMessage: errorMessage.value,
         }
@@ -167,32 +170,53 @@ const getStepProps = (step) => {
     }
 }
 
+const requestPaymentDetail = async () => {
+    route.name === 'edit-payment'
+        ? await patchPaymentDetail(paymentId, {
+              transactionType: state.transactionType,
+              title: state.title,
+              amount: state.amount,
+              date: state.date,
+              categoryId: `${state.categoryId}`,
+              description: state.description,
+          })
+        : await postPaymentDetail({
+              transactionType: state.transactionType,
+              title: state.title,
+              amount: state.amount,
+              spendAt: state.date,
+              createdAt: new Date().toISOString(),
+              description: state.description,
+              spendType: state.spendType,
+              categoryId: `${state.categoryId}`,
+              memberId: user.id,
+          })
+}
+
 // 다음 버튼 클릭 처리
-const onClickNext = () => {
+const onClickNext = async () => {
     if (currentStep.value === STEPS[4] && state.transactionType === 'spending') {
         setStep(EXTRA_STEPS[0])
         return
     }
-    if (currentStep.value === STEPS[5] && state.transactionType === 'income') {
-        // TODO: API 호출
-        console.log('수입 API 호출')
+    if (currentStep.value === STEPS[5]) {
+        await requestPaymentDetail()
+
         isSubmitted.value = true
         setStep(STEPS[6])
         return
     }
     if (currentStep.value === EXTRA_STEPS[0]) {
-        // TODO: API 호출
-        console.log('소비 API 호출')
-        isSubmitted.value = true
-        setStep(STEPS[6])
+        setStep(STEPS[5])
         return
     }
     if (currentStep.value === STEPS[6]) {
+        state.reset()
         router.push({ name: 'payments' })
         return
     }
     if (isValidated.value) {
-        isValidated.value = false
+        isValidated.value = route.name === 'edit-payment'
         nextStep()
     }
 }
@@ -200,6 +224,7 @@ const onClickNext = () => {
 // 뒤로 가기 버튼 클릭 처리
 const onClickBack = () => {
     if (currentStep.value === STEPS[0] || currentStep.value === STEPS[6]) {
+        state.reset()
         router.back()
         return
     }
@@ -209,5 +234,20 @@ const onClickBack = () => {
 
 onMounted(async () => {
     await useAuthGuard()
+    if (paymentId) {
+        console.log('수정할 결제 ID:', paymentId)
+        const data = await fetchPaymentDetail(paymentId)
+        if (data) {
+            state.transactionType = data.transactionType
+            state.title = data.title
+            state.amount = data.amount
+            state.date = data.spendAt
+            state.categoryId = data.categoryId
+            state.description = data.description
+            state.spendType = data.spendType
+            isValidated.value = true
+        }
+        setStep(STEPS[0])
+    }
 })
 </script>
