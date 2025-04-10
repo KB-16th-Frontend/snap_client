@@ -131,7 +131,6 @@ const getStepProps = (step) => {
             guideMessage: guideMessage.value,
         }
     } else if (step === STEPS[3]) {
-        console.log(state.date)
         return {
             transactionType: state.transactionType,
             date: state.date,
@@ -235,7 +234,6 @@ const onClickBack = () => {
 onMounted(async () => {
     await useAuthGuard()
     if (paymentId) {
-        console.log('수정할 결제 ID:', paymentId)
         const data = await fetchPaymentDetail(paymentId)
         if (data) {
             state.transactionType = data.transactionType

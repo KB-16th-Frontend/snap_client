@@ -9,7 +9,15 @@
         >
             소비 기록 상세 보기
         </BaseTypography>
-        <BaseCard title="소비 기록 상세" class="mt-3" toName="payments-detail">
+        <BaseCard
+            title="소비 기록 상세"
+            class="mt-3"
+            toName="payments-detail"
+            :query="{
+                year: props.year,
+                month: props.month < 10 ? '0' + props.month : props.month,
+            }"
+        >
             <div class="d-flex mt-3">
                 <BaseTypography size="lg" weight="bold" class="me-1"
                     >총 수입 : <span class="text-red">{{ props.income.toLocaleString() }}</span
@@ -34,6 +42,12 @@ const props = defineProps({
         type: Number,
     },
     spending: {
+        type: Number,
+    },
+    month: {
+        type: Number,
+    },
+    year: {
         type: Number,
     },
 })

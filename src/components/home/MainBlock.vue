@@ -52,12 +52,9 @@ onMounted(async () => {
     // 어제 날짜 구하기
     const yesterday = new Date(today)
     yesterday.setDate(today.getDate() - 1)
-    const yesterdayString = yesterday.toISOString().split('T')[0]
 
     // API 호출
     todaysData.value = await getValueIndex({ date: todayString })
-    console.log('todaysData.value', todaysData.value)
     yesterdayData.value = todaysData.value[0].yesterdayValue
-    console.log('yesterdayData.value', yesterdayData.value)
 })
 </script>

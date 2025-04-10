@@ -85,8 +85,6 @@ const fetchCategoryDetail = async (id) => {
     try {
         const data = await getCategoryDetailAPI(id)
         categoryData.value = data
-        console.log('카테고리 데이터:', data)
-        console.log(categoryData.value)
     } catch (error) {
         console.error('카테고리 데이터 가져오기 실패:', error)
     }

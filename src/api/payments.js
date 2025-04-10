@@ -41,6 +41,20 @@ export const fetchSpendingTransaction = async (request) => {
     }
 }
 
+export const getAllTransaction = async (type) => {
+    try {
+        const res = await instance.get('/transaction', {
+            params: {
+                transactionType: type,
+            },
+        })
+        console.log('거래 내역 요청 성공:', res.data)
+        return res.data
+    } catch (e) {
+        console.error('거래 내역 요청 실패:', e)
+    }
+}
+
 export const fetchPaymentDetail = async (id) => {
     try {
         const response = await instance.get(`/transaction/${id}`)

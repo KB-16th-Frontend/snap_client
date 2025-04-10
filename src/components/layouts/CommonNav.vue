@@ -18,8 +18,8 @@
             :to="{ name: menu.name }"
             class="text-decoration-none d-flex flex-column align-items-center gap-1 bg-white border-0"
             :class="{
-                'text-black': $route.name === menu.name,
-                'text-gray': $route.name !== menu.name,
+                'text-black': route.name === menu.name,
+                'text-gray': route.name !== menu.name,
             }"
         >
             <i class="fa-solid" :class="menu.icon"></i>
@@ -33,6 +33,4 @@ import { MENUS } from '@/common/constants'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-
-console.log(route.name)
 </script>

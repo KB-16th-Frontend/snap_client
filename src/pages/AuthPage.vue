@@ -72,7 +72,5 @@ const onSubmit = async () => {
             name: 'home',
         })
     }
-    console.log('User ID:', userId.value)
-    console.log(data)
 }
 </script>

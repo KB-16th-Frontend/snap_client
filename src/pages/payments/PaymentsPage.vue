@@ -8,7 +8,12 @@
             v-model:modelValueMonth="selectedMonth"
         />
         <div class="d-flex flex-column w-100 ps-3 pe-3 pb-5" v-if="categorySpendings.length > 0">
-            <SeeDetailBlock :income="totalIncome" :spending="totalSpending"></SeeDetailBlock>
+            <SeeDetailBlock
+                :income="totalIncome"
+                :spending="totalSpending"
+                :year="selectedYear"
+                :month="selectedMonth"
+            ></SeeDetailBlock>
             <SpendingReport
                 :category="categorySpendings[0].name"
                 :yearMonth="`${selectedYear}-${selectedMonth < 10 ? '0' + selectedMonth : selectedMonth}`"

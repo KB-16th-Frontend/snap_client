@@ -46,7 +46,6 @@ const props = defineProps({
 })
 
 const buttonClass = computed(() => {
-    console.log(props.variant)
     return {
         'btn-primary': props.variant === 'primary',
         'btn-outline': props.variant === 'outline',

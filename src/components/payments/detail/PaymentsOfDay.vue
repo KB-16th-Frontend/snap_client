@@ -28,6 +28,7 @@ import BaseCard from '@/components/common/Card/BaseCard.vue'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
 import PaymentItem from '@/components/payments/item/PaymentItem.vue'
 import { defineProps } from 'vue'
+
 const props = defineProps({
     day: {
         type: Number,
@@ -36,7 +37,6 @@ const props = defineProps({
         type: Array,
     },
 })
-console.log(props.paymentList)
 
 const emit = defineEmits(['openModal'])
 </script>

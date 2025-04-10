@@ -20,9 +20,9 @@
       "createdAt": "2025-04-01T23:45:00Z",
       "description": "폭주해버렸다",
       "spendType": "badSpending",
-      "categoryId": 11,
+      "categoryId": "21",
       "memberId": 1,
-      "transactionType": "spending"
+      "transactionType": "income"
     },
     {
       "id": "3",
@@ -38,6 +38,54 @@
     },
     {
       "id": "6de8",
+      "title": "테스트데이터추가",
+      "amount": 13500,
+      "spendAt": "2025-04-03",
+      "createdAt": "2025-04-10T04:52:28.804Z",
+      "description": "상세설명 추가",
+      "spendType": "goodSpending",
+      "categoryId": "4",
+      "memberId": 1,
+      "transactionType": "spending"
+    },
+    {
+      "id": "11",
+      "transactionType": "spending",
+      "title": "시홍쓰",
+      "amount": 12000,
+      "spendAt": "2025-04-01",
+      "createdAt": "2025-04-01T23:45:00Z",
+      "description": "토계밥맛있다",
+      "spendType": "badSpending",
+      "categoryId": "2",
+      "memberId": 1
+    },
+    {
+      "id": "23",
+      "title": "무이",
+      "amount": 70000,
+      "spendAt": "2025-04-01",
+      "createdAt": "2025-04-01T23:45:00Z",
+      "description": "폭주해버렸다",
+      "spendType": "badSpending",
+      "categoryId": "21",
+      "memberId": 1,
+      "transactionType": "income"
+    },
+    {
+      "id": "34",
+      "title": "GYMBOX(어린이대공원역점)",
+      "amount": 150000,
+      "spendAt": "2025-04-01",
+      "createdAt": "2025-04-01T23:45:00Z",
+      "description": "헬스장에 기부 또 했다~",
+      "spendType": "goodSpending",
+      "categoryId": 14,
+      "memberId": 1,
+      "transactionType": "spending"
+    },
+    {
+      "id": "6d38",
       "title": "테스트데이터추가",
       "amount": 13500,
       "spendAt": "2025-04-03",
