@@ -15,7 +15,12 @@
         <BaseTypography color="primary" weight="bold" size="lg" class="p-3"
             >차트 상세 보기</BaseTypography
         >
-        <LineChart :selectedRange="range" :key="range" :chartData="chartData"></LineChart>
+        <LineChart
+            v-if="chartData"
+            :selectedRange="range"
+            :key="range"
+            :chartData="chartData"
+        ></LineChart>
     </DetailLayout>
 </template>
 <script setup>
@@ -24,7 +29,7 @@ import LineChart from '@/components/chart/LineChart.vue'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { getValueIndexAll } from '@/api/valueIndex'
+import { getValueIndex } from '@/api/valueIndex'
 import { useAuthGuard } from '@/hooks/useAuthGuard'
 
 const router = useRouter()
@@ -37,6 +42,7 @@ const onBack = () => {
 
 onMounted(async () => {
     await useAuthGuard()
-    chartData.value = await getValueIndexAll()
+    chartData.value = await getValueIndex()
+    console.log(chartData.value)
 })
 </script>

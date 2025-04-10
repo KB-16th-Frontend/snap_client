@@ -49,6 +49,4 @@ const valueColor = computed(() => {
         return 'black'
     }
 })
-
-console.log('chartData', props.chartData)
 </script>

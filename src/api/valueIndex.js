@@ -14,15 +14,3 @@ export const getValueIndex = async (request) => {
         console.log('getSampleList 요청 실패', e)
     }
 }
-
-export const getValueIndexAll = async () => {
-    //TODO: memberID 추가해야함
-    try {
-        const response = await instance.get('/valueIndex')
-        // 데이터 정제가 필요한 경우 여기서 정제
-        return response.data
-    } catch (e) {
-        // 인터셉터에서 처리한 에러 외의 로깅 수행
-        console.log('getSampleList 요청 실패', e)
-    }
-}
