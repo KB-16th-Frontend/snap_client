@@ -15,7 +15,7 @@
         <BaseTypography color="primary" weight="bold" size="lg" class="p-3"
             >차트 상세 보기</BaseTypography
         >
-        <LineChart :selectedRange="range"></LineChart>
+        <LineChart :selectedRange="range" :key="range"></LineChart>
     </DetailLayout>
 </template>
 <script setup>
