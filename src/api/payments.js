@@ -1,5 +1,32 @@
 import { instance } from './common'
 
+export const fetchTransaction = async (request) => {
+    try {
+        const response = await instance.get('/transaction', {
+            params: {
+                memberId: request.memberId,
+            },
+        })
+        return response.data
+    } catch (e) {
+        console.error('fetchSpendingTransaction 요청 실패', e)
+    }
+}
+
+export const fetchIncomeTransaction = async (request) => {
+    try {
+        const response = await instance.get('/transaction', {
+            params: {
+                transactionType: 'income',
+                memberId: request.memberId,
+            },
+        })
+        return response.data
+    } catch (e) {
+        console.error('fetchSpendingTransaction 요청 실패', e)
+    }
+}
+
 export const fetchSpendingTransaction = async (request) => {
     try {
         const response = await instance.get('/transaction', {

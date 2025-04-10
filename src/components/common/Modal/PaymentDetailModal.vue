@@ -22,8 +22,8 @@
         <BaseTypography size="md" class="text-start w-100 my-3">
             <b>수입/지출 분류:</b> {{ item.transactionType === 'income' ? '수입' : '지출' }}
         </BaseTypography>
-          
-      <!-- <BaseTypography size="md" class="text-start w-100 my-3">
+
+        <!-- <BaseTypography size="md" class="text-start w-100 my-3">
         <b>상세 설명:</b> {{ item.description.length > 0 ? description : '없음' }}
       </BaseTypography> -->
 
@@ -37,16 +37,16 @@
 <script setup>
 import BaseModal from './BaseModal.vue'
 import BaseTypography from '../Typography/BaseTypography.vue'
-import PaymentItem from '../PaymentItem/PaymentItem.vue'
+import PaymentItem from '@/components/payments/item/PaymentItem.vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
 const { item } = defineProps({
-  item: {
-    type: Object,
-    required: true
-  }
+    item: {
+        type: Object,
+        required: true,
+    },
 })
 
 const goEdit = () => {

@@ -9,20 +9,30 @@ select {
 <template>
     <section class="w-100 p-3 bg-light-blue">
         <div class="d-flex justify-content-between w-100 mb-4">
-            <BaseTypography size="lg" weight="bold"
-                >{{ props.name }} 님의<br />{{ selectedYear }}년 {{ selectedMonth }}월<br />
-                소비 기록</BaseTypography
-            >
+            <BaseTypography size="lg" weight="bold">
+                {{ props.name }} 님의<br />
+                {{ modelValueYear }}년 {{ modelValueMonth }}월<br />
+                소비 기록
+            </BaseTypography>
             <BaseTypography size="2xl" class="emoji">📝</BaseTypography>
         </div>
 
         <div class="d-flex gap-3 select-box">
-            <select class="form-select" v-model="selectedYear">
+            <select
+                class="form-select"
+                :value="modelValueYear"
+                @change="emit('update:modelValueYear', Number($event.target.value))"
+            >
                 <option v-for="(item, index) in years" :key="index" :value="item">
                     {{ item }}년
                 </option>
             </select>
-            <select class="form-select" v-model="selectedMonth">
+
+            <select
+                class="form-select"
+                :value="modelValueMonth"
+                @change="emit('update:modelValueMonth', Number($event.target.value))"
+            >
                 <option v-for="(item, index) in months" :key="index" :value="item">
                     {{ item }}월
                 </option>
@@ -32,15 +42,15 @@ select {
 </template>
 <script setup>
 import BaseTypography from '../common/Typography/BaseTypography.vue'
-import { ref, defineProps } from 'vue'
+import { defineProps, defineEmits } from 'vue'
+
 const props = defineProps({
-    name: {
-        type: String,
-    },
+    modelValueYear: Number,
+    modelValueMonth: Number,
+    name: String,
 })
+const emit = defineEmits(['update:modelValueYear', 'update:modelValueMonth'])
+
 const years = [2025, 2024, 2023, 2022, 2021]
 const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-
-const selectedYear = ref(new Date().getFullYear())
-const selectedMonth = ref(new Date().getMonth() + 1)
 </script>

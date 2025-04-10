@@ -7,7 +7,7 @@
             title="지출 분석 리포트"
             class="mt-3"
             toName="payment-statistics"
-            :query="{ memberId: '1234', yearMonth: '2023-10' }"
+            :query="{ memberId: user.id, yearMonth: yearMonth }"
         >
             <BaseTypography size="lg" weight="bold" class="mt-3"
                 >가장 많은 돈을 쓴 카테고리
@@ -19,10 +19,17 @@
     </section>
 </template>
 <script setup>
+import useUserStore from '@/stores/auth'
 import BaseCard from '../common/Card/BaseCard.vue'
 import BaseTypography from '../common/Typography/BaseTypography.vue'
 import { defineProps } from 'vue'
 const props = defineProps({
     category: String,
+    yearMonth: {
+        type: String,
+        required: true,
+    },
 })
+
+const user = useUserStore()
 </script>
