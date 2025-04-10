@@ -45,6 +45,11 @@ const router = createRouter({
             component: () => import('../pages/ChartsPage.vue'),
         },
         {
+            path: '/charts/detail',
+            name: 'charts-detail',
+            component: () => import('../pages/ChartsDetailPage.vue'),
+        },
+        {
             path: '/mypage',
             name: 'mypage',
             component: () => import('../pages/MyPage.vue'),
