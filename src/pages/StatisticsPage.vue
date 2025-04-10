@@ -47,6 +47,7 @@ import BaseCard from '@/components/common/Card/BaseCard.vue'
 import SpendTypeChart from '@/components/chart/SpendTypeChart.vue'
 import CategoryChart from '@/components/chart/CategoryChart.vue'
 import { fetchStatistics } from '@/api/payments'
+import { useAuthGuard } from '@/hooks/useAuthGuard'
 
 const router = useRouter()
 const route = useRoute()
@@ -86,4 +87,8 @@ const categorySpendings = ref([
 const onClickBack = () => {
     router.back()
 }
+
+onMounted(async () => {
+    await useAuthGuard()
+})
 </script>

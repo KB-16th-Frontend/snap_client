@@ -9,7 +9,8 @@
       "description": "토계밥 너무 맛있어",
       "spendType": "goodSpending",
       "categoryId": 1,
-      "memberId": 1
+      "memberId": 1,
+      "transactionType": "spending"
     },
     {
       "id": "2",
@@ -20,7 +21,8 @@
       "description": "폭주해버렸다",
       "spendType": "badSpending",
       "categoryId": 11,
-      "memberId": 1
+      "memberId": 1,
+      "transactionType": "spending"
     },
     {
       "id": "3",
@@ -31,7 +33,8 @@
       "description": "헬스장에 기부 또 했다~",
       "spendType": "goodSpending",
       "categoryId": 14,
-      "memberId": 1
+      "memberId": 1,
+      "transactionType": "spending"
     }
   ],
   "categories": [
@@ -82,6 +85,7 @@
     {
       "id": "1",
       "nickname": "김스냅",
+      "password": "1234",
       "totalSpend": 235000,
       "presentValueScore": 58000
     }

@@ -57,6 +57,7 @@ import SelectIsValuableSpending from '@/components/payments/form/SelectIsValuabl
 import { useAddPaymentsForm } from '@/hooks/forms/useAddPaymentsForm'
 import { useFunnel } from '@/hooks/useFunnel'
 import { useValidation } from '@/hooks/useValidation'
+import { useAuthGuard } from '@/hooks/useAuthGuard'
 
 const STEPS = [
     '수입/지출 선택',
@@ -206,8 +207,7 @@ const onClickBack = () => {
     prevStep()
 }
 
-// onMounted(() => {
-//     if (paymentId) {
-//     }
-// })
+onMounted(async () => {
+    await useAuthGuard()
+})
 </script>

@@ -128,8 +128,9 @@ const data = [
     },
 ]
 // --
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import PaymentDetailModal from '@/components/common/Modal/PaymentDetailModal.vue'
+import { useAuthGuard } from '@/hooks/useAuthGuard'
 const isOpen = ref(false)
 const selectedPayment = ref({})
 
@@ -140,4 +141,8 @@ const handleOpenModal = (item) => {
     isOpen.value = true
     console.log(isOpen.value)
 }
+
+onMounted(async () => {
+    await useAuthGuard()
+})
 </script>
