@@ -29,7 +29,7 @@
 </template>
 <script setup>
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
-import { ref, defineProps } from 'vue'
+import { computed, defineProps, defineEmits } from 'vue'
 const props = defineProps({
     year: {
         type: Number,
@@ -43,6 +43,15 @@ const props = defineProps({
     spending: {
         type: Number,
     },
+    selectedOption: {
+        type: String,
+        default: 'total',
+    },
 })
-const selectedOption = ref('total')
+const emit = defineEmits(['update:selectedOption'])
+
+const selectedOption = computed({
+    get: () => props.selectedOption,
+    set: (val) => emit('update:selectedOption', val),
+})
 </script>

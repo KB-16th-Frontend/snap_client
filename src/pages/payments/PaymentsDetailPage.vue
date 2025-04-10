@@ -1,10 +1,16 @@
 <style scoped></style>
 <template>
     <DetailLayout class="pb-5" :onBack="onBack">
-        <TotalBlock :year="year" :month="month" :income="income" :spending="spending"></TotalBlock>
+        <TotalBlock
+            :year="year"
+            :month="month"
+            :income="totalIncome"
+            :spending="totalSpending"
+            v-model:selectedOption="selectedOption"
+        ></TotalBlock>
         <PaymentsOfDay
-            v-for="item in data"
-            :key="item.items.id"
+            v-for="item in groupedData"
+            :key="item.day"
             :day="item.day"
             :paymentList="item.items"
             @openModal="handleOpenModal"
@@ -23,13 +29,13 @@
 </template>
 <script setup>
 import { useRouter } from 'vue-router'
-import { onMounted, ref } from 'vue'
-
+import { onMounted, ref, computed } from 'vue'
 import TotalBlock from '@/components/payments/detail/TotalBlock.vue'
 import PaymentsOfDay from '@/components/payments/detail/PaymentsOfDay.vue'
 import DetailLayout from '@/components/layouts/DetailLayout.vue'
 import PaymentDetailModal from '@/components/common/Modal/PaymentDetailModal.vue'
 import { useAuthGuard } from '@/hooks/useAuthGuard'
+import { fetchStatistics } from '@/api/payments'
 
 const isOpen = ref(false)
 const selectedPayment = ref({})
@@ -54,96 +60,74 @@ onMounted(async () => {
 // FIXME: DEV에서만 데이터 사용 후 삭제
 const year = 2025
 const month = 4
-const income = 1000000
-const spending = 123400
-const data = [
-    {
-        day: 3,
-        items: [
-            {
-                id: '1',
-                title: '용돈',
-                amount: 12000000,
-                category: '식비',
-                transactionType: 'income',
-                emoji: '🎈',
-            },
-            {
-                id: '2',
-                title: '시홍쓰',
-                amount: 12000,
-                category: '식비',
-                transactionType: 'spending',
-                emoji: '🎈',
-            },
-            {
-                id: '3',
-                title: '시홍쓰',
-                amount: 12000,
-                category: '식비',
-                transactionType: 'spending',
-                emoji: '🎈',
-            },
-        ],
-    },
-    {
-        day: 2,
-        items: [
-            {
-                id: '4',
-                title: '시홍쓰',
-                amount: 12000,
-                category: '식비',
-                transactionType: 'spending',
-                emoji: '🎈',
-            },
-            {
-                id: '5',
-                title: '시홍쓰',
-                amount: 12000,
-                category: '식비',
-                transactionType: 'spending',
-                emoji: '🎈',
-            },
-            {
-                id: '6',
-                title: '시홍쓰',
-                amount: 12000,
-                category: '식비',
-                transactionType: 'spending',
-                emoji: '🎈',
-            },
-            {
-                id: '7',
-                title: '시홍쓰',
-                amount: 12000,
-                category: '식비',
-                transactionType: 'spending',
-                emoji: '🎈',
-            },
-        ],
-    },
-    {
-        day: 1,
-        items: [
-            {
-                id: '8',
-                title: '무이',
-                amount: 70000,
-                category: '식비',
-                transactionType: 'spending',
-                emoji: '🎈',
-            },
-            {
-                id: '9',
-                title: 'GYMBOX(어린이대공원역점)',
-                amount: 150000,
-                spendType: 'goodSpending',
-                category: '건강',
-                transactionType: 'spending',
-                emoji: '🎈',
-            },
-        ],
-    },
-]
+const selectedOption = ref('total')
+
+const data = ref([])
+const monthlyData = computed(() => {
+    return data.value.filter((item) => {
+        const date = new Date(item.spendAt)
+        return date.getFullYear() === year && date.getMonth() + 1 === month
+    })
+})
+
+const totalIncome = computed(() => {
+    return monthlyData.value
+        .filter((item) => item.transactionType === 'income')
+        .reduce((sum, item) => sum + item.amount, 0)
+})
+const totalSpending = computed(() => {
+    return monthlyData.value
+        .filter((item) => item.transactionType === 'spending')
+        .reduce((sum, item) => sum + item.amount, 0)
+})
+
+const filteredData = computed(() => {
+    return monthlyData.value.filter((item) => {
+        if (selectedOption.value === 'income') {
+            return item.transactionType === 'income'
+        } else if (selectedOption.value === 'spending') {
+            return item.transactionType === 'spending'
+        } else {
+            return true
+        }
+    })
+})
+const groupedData = computed(() => {
+    const grouped = filteredData.value.reduce((acc, cur) => {
+        const date = new Date(cur.spendAt)
+        const day = date.getDate()
+
+        if (!acc[day]) {
+            acc[day] = []
+        }
+
+        acc[day].push({
+            id: cur.id,
+            title: cur.title,
+            amount: cur.amount,
+            category: cur.categoryId,
+            transactionType: cur.transactionType,
+            emoji: '0',
+        })
+
+        return acc
+    }, {})
+
+    const result = Object.keys(grouped)
+        .map((day) => ({
+            day: parseInt(day),
+            items: grouped[day],
+        }))
+        .sort((a, b) => b.day - a.day)
+
+    return result
+})
+
+onMounted(async () => {
+    data.value = await fetchStatistics({
+        params: {
+            userId: 1,
+        },
+    })
+})
 </script>
