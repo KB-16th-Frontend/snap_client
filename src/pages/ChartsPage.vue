@@ -25,4 +25,11 @@ import AddNewSpending from '@/components/payments/AddNewSpending.vue'
 const name = '김스냅'
 const valueScore = 1234567
 const valueChangeRate = -1.24
+
+import { onMounted } from 'vue'
+import { useAuthGuard } from '@/hooks/useAuthGuard'
+
+onMounted(async () => {
+    await useAuthGuard()
+})
 </script>

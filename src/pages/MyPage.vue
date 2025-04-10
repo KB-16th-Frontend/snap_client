@@ -26,10 +26,16 @@ import { useRouter } from 'vue-router'
 import BaseLayout from '@/components/layouts/BaseLayout.vue'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
 import { MY_PAGE_MENUS } from '@/common/constants'
+import { onMounted } from 'vue'
+import { useAuthGuard } from '@/hooks/useAuthGuard'
 
 const router = useRouter()
 
 const goToAddPage = () => {
     router.push(`/mypage/edit/name`)
 }
+
+onMounted(async () => {
+    await useAuthGuard()
+})
 </script>

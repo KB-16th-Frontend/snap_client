@@ -21,4 +21,10 @@ import MainBlock from '@/components/home/MainBlock.vue'
 import PaymentsBlock from '@/components/home/PaymentsBlock.vue'
 import CommonFooter from '@/components/layouts/CommonFooter.vue'
 import MainCarousel from '@/components/home/MainCarousel.vue'
+import { onMounted } from 'vue'
+import { useAuthGuard } from '@/hooks/useAuthGuard'
+
+onMounted(async () => {
+    await useAuthGuard()
+})
 </script>

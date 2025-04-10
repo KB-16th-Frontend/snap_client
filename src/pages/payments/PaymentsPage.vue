@@ -20,4 +20,11 @@ import AddNewSpending from '@/components/payments/AddNewSpending.vue'
 import { ref } from 'vue'
 const income = ref(234567)
 const spending = ref(123456)
+
+import { onMounted } from 'vue'
+import { useAuthGuard } from '@/hooks/useAuthGuard'
+
+onMounted(async () => {
+    await useAuthGuard()
+})
 </script>
