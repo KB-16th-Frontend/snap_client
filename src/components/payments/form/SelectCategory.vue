@@ -24,6 +24,7 @@
 <script setup>
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
 import { useCategoryStore } from '@/stores/categoryStore'
+import { ref } from 'vue'
 const categoryStore = useCategoryStore()
 const categories = ref([])
 
