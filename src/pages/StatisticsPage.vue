@@ -40,49 +40,58 @@
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useRoute } from 'vue-router'
+import { useCategoryStore } from '@/stores/categoryStore'
 
 import DetailLayout from '@/components/layouts/DetailLayout.vue'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
 import BaseCard from '@/components/common/Card/BaseCard.vue'
 import SpendTypeChart from '@/components/chart/SpendTypeChart.vue'
 import CategoryChart from '@/components/chart/CategoryChart.vue'
-import { fetchStatistics } from '@/api/payments'
+import { fetchSpendingTransaction } from '@/api/payments'
 import { useAuthGuard } from '@/hooks/useAuthGuard'
 
 const router = useRouter()
 const route = useRoute()
-const yearMonth = ref(route.query.yearMonth)
+const categories = useCategoryStore().categories
+
+const yearMonth = ref(route.query.yearMonth) // YYYY-MM
 const memberId = ref(Number(route.query.memberId))
 
 const month = ref(parseInt(yearMonth.value.split('-')[1]))
-// const totalSpending = ref(0)
-// const goodSpending = ref(0)
-// const badSpending = ref(0)
-// const categorySpendings = ref([])
+const totalSpending = ref(0)
+const goodSpending = ref(0)
+const badSpending = ref(0)
+const categorySpendings = ref([])
+const categoryMap = new Map()
 
-const statisticsData = fetchStatistics({
-    yearMonth: yearMonth.value,
-    memberId: memberId.value,
+const transactions = ref([])
+
+fetchSpendingTransaction({ memberId: memberId.value }).then((data) => {
+    transactions.value = data.filter((tx) => tx.spendAt.startsWith(yearMonth.value))
+
+    transactions.value.forEach((tx) => {
+        totalSpending.value += tx.amount
+
+        if (tx.spendType === 'goodSpending') {
+            goodSpending.value += tx.amount
+        } else if (tx.spendType === 'badSpending') {
+            badSpending.value += tx.amount
+        }
+
+        const matched = categories.find((c) => Number(c.id) === Number(tx.categoryId))
+
+        if (!categoryMap.has(tx.categoryId)) {
+            categoryMap.set(tx.categoryId, {
+                title: matched.name,
+                emoji: matched.emoji,
+                data: tx.amount,
+            })
+        } else {
+            categoryMap.get(tx.categoryId).data += tx.amount
+        }
+    })
+    categorySpendings.value = Array.from(categoryMap.values()).sort((a, b) => b.data - a.data)
 })
-
-onMounted(() => {
-    // totalSpending.value = statisticsData.totalSpending
-    // goodSpending.value = statisticsData.goodSpending
-    // badSpending.value = statisticsData.badSpending
-    // categorySpendings.value = statisticsData.categorySpendings
-})
-
-// 테스트용 데이터
-const totalSpending = ref(100000)
-const goodSpending = ref(80000)
-const badSpending = ref(20000)
-const categorySpendings = ref([
-    { title: '식비', data: 30000, emoji: '🍽' },
-    { title: '교통', data: 20000, emoji: '🚗' },
-    { title: '취미/여가', data: 10000, emoji: '🎟' },
-    { title: '쇼핑', data: 5000, emoji: '🛍' },
-    { title: '기타', data: 2000, emoji: '#️⃣' },
-])
 
 const onClickBack = () => {
     router.back()
