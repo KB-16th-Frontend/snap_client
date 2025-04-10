@@ -38,7 +38,6 @@
     },
     {
       "id": "6de8",
-      "transactionType": "spending",
       "title": "테스트데이터추가",
       "amount": 13500,
       "spendAt": "2025-04-03",
@@ -46,7 +45,8 @@
       "description": "상세설명 추가",
       "spendType": "goodSpending",
       "categoryId": "4",
-      "date": "2025-04-03"
+      "memberId": 1,
+      "transactionType": "spending"
     }
   ],
   "categories": [

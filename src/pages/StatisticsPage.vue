@@ -49,13 +49,15 @@ import SpendTypeChart from '@/components/chart/SpendTypeChart.vue'
 import CategoryChart from '@/components/chart/CategoryChart.vue'
 import { fetchSpendingTransaction } from '@/api/payments'
 import { useAuthGuard } from '@/hooks/useAuthGuard'
+import useUserStore from '@/stores/auth'
 
 const router = useRouter()
 const route = useRoute()
 const categories = useCategoryStore().categories
+const userInfo = useUserStore()
 
 const yearMonth = ref(route.query.yearMonth) // YYYY-MM
-const memberId = ref(Number(route.query.memberId))
+const memberId = userInfo.id
 
 const month = ref(parseInt(yearMonth.value.split('-')[1]))
 const totalSpending = ref(0)
@@ -63,35 +65,7 @@ const goodSpending = ref(0)
 const badSpending = ref(0)
 const categorySpendings = ref([])
 const categoryMap = new Map()
-
 const transactions = ref([])
-
-fetchSpendingTransaction({ memberId: memberId.value }).then((data) => {
-    transactions.value = data.filter((tx) => tx.spendAt.startsWith(yearMonth.value))
-
-    transactions.value.forEach((tx) => {
-        totalSpending.value += tx.amount
-
-        if (tx.spendType === 'goodSpending') {
-            goodSpending.value += tx.amount
-        } else if (tx.spendType === 'badSpending') {
-            badSpending.value += tx.amount
-        }
-
-        const matched = categories.find((c) => Number(c.id) === Number(tx.categoryId))
-
-        if (!categoryMap.has(tx.categoryId)) {
-            categoryMap.set(tx.categoryId, {
-                title: matched.name,
-                emoji: matched.emoji,
-                data: tx.amount,
-            })
-        } else {
-            categoryMap.get(tx.categoryId).data += tx.amount
-        }
-    })
-    categorySpendings.value = Array.from(categoryMap.values()).sort((a, b) => b.data - a.data)
-})
 
 const onClickBack = () => {
     router.back()
@@ -99,5 +73,30 @@ const onClickBack = () => {
 
 onMounted(async () => {
     await useAuthGuard()
+    fetchSpendingTransaction({ memberId: memberId }).then((data) => {
+        transactions.value = data.filter((tx) => tx.spendAt.startsWith(yearMonth.value))
+        transactions.value.forEach((tx) => {
+            totalSpending.value += tx.amount
+
+            if (tx.spendType === 'goodSpending') {
+                goodSpending.value += tx.amount
+            } else if (tx.spendType === 'badSpending') {
+                badSpending.value += tx.amount
+            }
+
+            const matched = categories.find((c) => Number(c.id) === Number(tx.categoryId))
+
+            if (!categoryMap.has(tx.categoryId)) {
+                categoryMap.set(tx.categoryId, {
+                    title: matched.name,
+                    emoji: matched.emoji,
+                    data: tx.amount,
+                })
+            } else {
+                categoryMap.get(tx.categoryId).data += tx.amount
+            }
+        })
+        categorySpendings.value = Array.from(categoryMap.values()).sort((a, b) => b.data - a.data)
+    })
 })
 </script>
