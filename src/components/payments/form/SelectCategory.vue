@@ -22,10 +22,9 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
-import { getIncomeCategoryAPI, getSpendingCategoryAPI } from '@/api/category'
-
+import { useCategoryStore } from '@/stores/categoryStore'
+const categoryStore = useCategoryStore()
 const categories = ref([])
 
 const props = defineProps({
@@ -48,11 +47,14 @@ const props = defineProps({
         },
     },
 })
-onMounted(async () => {
-    if (props.transactionType === 'income') {
-        categories.value = await getIncomeCategoryAPI()
-    } else {
-        categories.value = await getSpendingCategoryAPI()
-    }
-})
+
+if (props.transactionType === 'income') {
+    categories.value = categoryStore.categories.filter(
+        (category) => category.transactionType === 'income',
+    )
+} else {
+    categories.value = categoryStore.categories.filter(
+        (category) => category.transactionType === 'spending',
+    )
+}
 </script>
