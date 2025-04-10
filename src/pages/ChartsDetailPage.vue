@@ -23,6 +23,11 @@ import DetailLayout from '@/components/layouts/DetailLayout.vue'
 import LineChart from '@/components/chart/LineChart.vue'
 import BaseTypography from '@/components/common/Typography/BaseTypography.vue'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const range = ref('week')
+const onBack = () => {
+    router.back()
+}
 </script>
