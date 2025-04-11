@@ -41,6 +41,19 @@ export const fetchSpendingTransaction = async (request) => {
     }
 }
 
+export const fetchRecentTransaction = async () => {
+    try {
+        const response = await instance.get('/transaction', {
+            params: {
+                _limit: 3,
+            },
+        })
+        return response.data
+    } catch (e) {
+        console.error('fetchRecentTransaction 요청 실패', e)
+    }
+}
+
 export const getAllTransaction = async (type) => {
     try {
         const res = await instance.get('/transaction', {

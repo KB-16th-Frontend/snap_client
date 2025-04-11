@@ -23,7 +23,6 @@
             <span class="fw-bold">날짜:</span> {{ date }}
         </BaseTypography>
         <BaseTypography size="md" class="text-start w-100 my-3 d-flex align-items-center gap-1">
-            <!-- TODO: getCategoryAPI -->
             <span class="fw-bold">카테고리:</span>
             <div class="badge rounded-pill bg-primary">#{{ categoryData.name }}</div>
         </BaseTypography>
