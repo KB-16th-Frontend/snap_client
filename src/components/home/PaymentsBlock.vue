@@ -42,7 +42,5 @@ const month = today.getMonth() + 1
 
 onMounted(async () => {
     data.value = await fetchRecentTransaction()
-    console.log(data.value)
-    console.log(categoryStore.categories)
 })
 </script>

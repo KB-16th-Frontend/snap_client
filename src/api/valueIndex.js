@@ -2,7 +2,6 @@ import { instance } from './common'
 
 /** @types date는 부르고자 하는 날짜다. */
 export const getValueIndex = async (request) => {
-    //TODO: memberID 추가해야함
     try {
         const response = await instance.get('/valueIndex', {
             params: request, // ✅ 쿼리로 넘김

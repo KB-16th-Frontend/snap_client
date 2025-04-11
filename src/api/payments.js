@@ -61,7 +61,6 @@ export const getAllTransaction = async (type) => {
                 transactionType: type,
             },
         })
-        console.log('거래 내역 요청 성공:', res.data)
         return res.data
     } catch (e) {
         console.error('거래 내역 요청 실패:', e)

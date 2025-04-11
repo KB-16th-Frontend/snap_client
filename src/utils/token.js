@@ -7,7 +7,6 @@ export const getUserLocalStorage = () => {
 }
 
 export const setUserLocalStorage = (userId) => {
-    console.log(SNAP_USER_INFO, userId)
     localStorage.setItem(SNAP_USER_INFO, JSON.stringify(userId))
 }
 

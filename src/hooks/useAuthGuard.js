@@ -8,7 +8,6 @@ export async function useAuthGuard() {
     const userStore = useUserStore()
 
     const userId = getUserLocalStorage()
-    console.log('userId:', userId)
 
     if (userId) {
         try {

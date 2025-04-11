@@ -43,6 +43,5 @@ const onBack = () => {
 onMounted(async () => {
     await useAuthGuard()
     chartData.value = await getValueIndex()
-    console.log(chartData.value)
 })
 </script>
