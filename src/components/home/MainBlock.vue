@@ -20,7 +20,7 @@
             <div class="d-flex align-items-center gap-1">
                 <i class="fa-solid fa-chart-line fs-lg text-red"></i>
                 <BaseTypography color="red" size="lg" weight="bold"
-                    >({{ todaysData[0].valueChangeRate > 0 ? '+' : '-' }}
+                    >({{ todaysData[0].valueChangeRate > 0 ? '+' : '' }}
                     {{ todaysData[0].valueChangeRate }}%)</BaseTypography
                 >
             </div>
