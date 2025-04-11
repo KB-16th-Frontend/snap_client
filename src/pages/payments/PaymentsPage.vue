@@ -3,7 +3,7 @@
 <template>
     <BaseLayout class="pb-5">
         <ThisMonthSpending
-            name="김스냅"
+            :name="user.getUserNickname"
             v-model:modelValueYear="selectedYear"
             v-model:modelValueMonth="selectedMonth"
         />
@@ -36,6 +36,7 @@ const income = ref([])
 const spending = ref([])
 const selectedYear = ref(new Date().getFullYear())
 const selectedMonth = ref(new Date().getMonth() + 1)
+const user = useUserStore()
 
 const totalIncome = computed(() => {
     return filteredIncome.value.reduce((sum, item) => sum + item.amount, 0)
@@ -64,6 +65,7 @@ const filteredSpending = computed(() => {
 })
 
 import { useCategoryStore } from '@/stores/categoryStore'
+import useUserStore from '@/stores/auth'
 
 const categories = useCategoryStore().categories
 const categorySpendings = ref([])
