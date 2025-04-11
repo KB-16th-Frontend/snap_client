@@ -1,7 +1,8 @@
+import { SNAP_API_URL } from '@/common/env'
 import axios from 'axios'
 
 export const instance = axios.create({
-    baseURL: '/api',
+    baseURL: SNAP_API_URL,
     timeout: 5000,
 })
 
