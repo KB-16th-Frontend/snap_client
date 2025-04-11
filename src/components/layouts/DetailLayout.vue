@@ -1,7 +1,6 @@
 <style scoped>
 .container {
     max-width: 768px !important;
-    border: 1px solid #000;
     min-height: 100vh;
     padding: 0;
     position: relative;
