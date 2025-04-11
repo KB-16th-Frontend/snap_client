@@ -18,8 +18,14 @@
                 />원</BaseTypography
             >
             <div class="d-flex align-items-center gap-1">
-                <i class="fa-solid fa-chart-line fs-lg text-red"></i>
-                <BaseTypography color="red" size="lg" weight="bold"
+                <i
+                    class="fa-solid fa-chart-line fs-lg"
+                    :class="todaysData[0].valueChangeRate > 0 ? 'text-red' : 'text-blue'"
+                ></i>
+                <BaseTypography
+                    :color="todaysData[0].valueChangeRate > 0 ? 'red' : 'blue'"
+                    size="lg"
+                    weight="bold"
                     >({{ todaysData[0].valueChangeRate > 0 ? '+' : '' }}
                     {{ todaysData[0].valueChangeRate }}%)</BaseTypography
                 >
