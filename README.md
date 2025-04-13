@@ -71,3 +71,6 @@ IT's Your Life 6기 - 프론트엔드 스켈레톤 프로젝트입니다.
 ## 기여자
 
 - [Wha1eSon(손영호)](https://github.com/wherewhale)
+- [cherryiJuice(최이주)](https://github.com/cherryiJuice)
+- [hyungEee(최지형)](https://github.com/hyungEee)
+- [JJ-HMFIC(전경환)](https://github.com/JJ-HMFIC)
